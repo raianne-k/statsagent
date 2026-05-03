@@ -11,7 +11,7 @@
     "impact": "Outlier counts look inflated and misleading (e.g., ~19%), even though they actually represent normal behavior.",
     "correction": "Detect binary variables using cardinality (<=2 unique values). Skip IQR and report them as proportions instead, where the mean represents the share of positive cases.",
     "fix_level": "tool",
-    "status": "open"
+    "status": "closed"
   },
   {
     "id": "DS-02",
@@ -25,7 +25,7 @@
     "impact": "Adds noise to the output and could lead to misleading relationships if used later in correlation or modeling.",
     "correction": "Detect ID columns using naming patterns ('id', '_id') and/or high uniqueness. Exclude them from numeric analysis and report them separately.",
     "fix_level": "tool",
-    "status": "open"
+    "status": "closed"
   },
   {
     "id": "DS-03",
@@ -39,7 +39,7 @@
     "impact": "If this is a cap or repeated value, it could distort skew and any later analysis using views.",
     "correction": "When a round-number max appears, check how many rows have that exact value before interpreting it. For synthetic data, also use this to improve how values are generated.",
     "fix_level": "tool",
-    "status": "open"
+    "status": "closed"
   },
   {
     "id": "DS-04",
@@ -53,7 +53,7 @@
     "impact": "Misses key insights like category distribution, regional differences, and returning user behavior.",
     "correction": "Add categorical summaries (value counts, proportions, top categories). Treat binary categoricals as proportions.",
     "fix_level": "tool",
-    "status": "open"
+    "status": "closed"
   },
   {
     "id": "DS-05",
@@ -67,7 +67,7 @@
     "impact": "The reported conversion may not reflect the true conditional rate.",
     "correction": "Any metric that can be computed should be calculated directly (e.g., cart → purchase rate). Avoid estimating in text.",
     "fix_level": "task",
-    "status": "open"
+    "status": "closed"
   },
   {
     "id": "DS-06",
@@ -81,6 +81,6 @@
     "impact": "Could lead to incorrect assumptions in modeling, especially around price sensitivity.",
     "correction": "Check unique values (value_counts, nunique). If values are limited and repeated, treat the variable as categorical or low-cardinality numeric.",
     "fix_level": "tool",
-    "status": "open"
+    "status": "closed"
   }
 ]

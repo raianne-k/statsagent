@@ -59,9 +59,42 @@ The following are not fully fixed yet unless tool logic is added:
 
 ---
 
-## Run 03 — Future Fixes
+Run 03 — Tool-Level Fixes (Final)
 
-improvements:
+Changes applied
 
-- DS-01: binary handling fixed at tool level
-- DS-04: categorical summaries added
+* DS-01: binary variables summarized as proportions
+* DS-03: round-number max check implemented (e.g. views = 1000)
+* DS-04: categorical summaries added
+* DS-05: conversion metric computed (cart → purchase)
+* DS-06: low-cardinality numeric detection implemented
+* DS-07: refined ID detection to avoid excluding valid numeric variables
+
+⸻
+
+Outcome
+
+* All variables are now handled according to their correct type
+* Descriptive statistics are consistent with standard analytical practice
+* Previously flagged issues (skew, outliers, categorical structure) are now properly reflected in the output
+* Conversion behavior is quantified instead of estimated
+* No major methodological issues remain at the descriptive level
+
+⸻
+
+Validation result
+
+* Statistical outputs align with visual distributions
+* No misuse of variable types (binary vs continuous vs categorical)
+* Outliers and skew correctly identified and interpreted
+* System produces consistent, interpretable results
+
+⸻
+
+Status
+
+All major issues identified in Run 01 have been resolved through a combination of:
+
+* tool-level fixes
+* instruction improvements
+* validation-driven iteration

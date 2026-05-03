@@ -7,8 +7,10 @@
 
 ## Final Output
 
-[View Final Report](./reports/final_report.md)
+The validated final analysis is available here:
 
+[Final Report](./reports/final_report.md) - validated descriptive analysis after iterative fixes
+[Changelog](./changelog.md) - full record of issues, fixes, and iteration process
 
 ---
 
@@ -76,6 +78,10 @@ Plots confirm:
 - imbalance in category distribution  
 
 See `/plots`.
+
+![Views Distribution](./plots/views_distribution.png)
+![Item Price](./plots/item_price_distribution.png)
+![Shipping](./plots/shipping_tiers.png)
 
 ---
 

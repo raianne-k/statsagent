@@ -381,7 +381,7 @@ The following outputs illustrate how forecasting trajectories, operational signa
 ### Interactive Outputs
 
 - [Executive Forecasting Report](outputs/reports/executive_forecasting_report.html)
-- [Interactive Forecasting Dashboard](outputs/dashboards/forecasting_dashboard.html)
+- [Interactive Forecasting Dashboard](outputs/dashboards/executive_forecasting_dashboard.html)
 ---
 
 ## Governance & Human Oversight

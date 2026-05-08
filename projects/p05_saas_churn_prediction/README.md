@@ -129,20 +129,10 @@ This project introduces stakeholder-facing deliverables including:
 - churn-risk dashboards
 - retention monitoring outputs
 
-## Executive Deliverables
-
-#### Churn-Risk Dashboard
-
-![Churn Dashboard](outputs/dashboard/churn_dashboard_preview.png)
-
-#### Executive Retention Report
-
-![Executive Report](outputs/reports/executive_report_preview.png)
-
 ### Interactive Outputs
 
-- [Executive HTML Report](outputs/reports/executive_report.html)
-- [Interactive Churn Dashboard](outputs/dashboard/churn_dashboard.html)
+- [Executive HTML Report](outputs/reports/executive_churn_report.html)
+- [Interactive Churn Dashboard](outputs/dashboards/churn_dashboard.html)
 
 6. Governance & Human Review
 

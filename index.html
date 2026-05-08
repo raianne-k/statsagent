@@ -129,8 +129,30 @@ section{position:relative;z-index:1}
 #projects{padding:6rem 0}
 .proj-head{text-align:center;margin-bottom:4rem}
 .proj-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.1rem}
-.proj-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--rad);padding:1.75rem;transition:all .28s ease;cursor:default;position:relative}
-.proj-card:hover{transform:translateY(-4px);background:var(--surface2);box-shadow:0 14px 44px rgba(15,23,42,.08),0 0 0 1px var(--border-hi)}
+
+.proj-card{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:var(--rad);
+  padding:1.75rem;
+  transition:all .28s ease;
+  cursor:pointer;
+  position:relative
+}
+
+/* clickable card fix */
+.proj-card{
+  text-decoration:none;
+  color:inherit;
+  display:block;
+}
+
+.proj-card:hover{
+  transform:translateY(-4px);
+  background:var(--surface2);
+  box-shadow:0 14px 44px rgba(15,23,42,.08),0 0 0 1px var(--border-hi)
+}
+
 .proj-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:1.15rem}
 .proj-num{font-family:'JetBrains Mono',monospace;font-size:.68rem;color:var(--brand);background:var(--brand-dim);padding:.18rem .5rem;border-radius:4px;letter-spacing:.08em}
 .proj-dom{font-size:.68rem;color:var(--ink-dim);letter-spacing:.06em;text-transform:uppercase}
@@ -205,6 +227,13 @@ footer{padding:4.5rem 2rem 3rem;border-top:1px solid var(--border);text-align:ce
   .nav-hamburger{display:flex}
   .pipe-track{grid-template-columns:repeat(4,1fr);gap:1.5rem}
   .pipe-track::before{display:none}
+  .pipe-step{
+  text-decoration:none;
+  color:inherit;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+}
   .cap-head{grid-template-columns:1fr;gap:1.25rem}
   .cap-grid{grid-template-columns:repeat(2,1fr)}
   .proj-grid{grid-template-columns:1fr 1fr}
@@ -330,57 +359,69 @@ footer{padding:4.5rem 2rem 3rem;border-top:1px solid var(--border);text-align:ce
 </div>
 
 <!-- ── PIPELINE ── -->
+
 <section id="pipeline">
+
   <div class="wrap">
+
     <div class="pip-header">
+
       <div class="sec-label rv">Analytics Lifecycle</div>
+
       <h2 class="sec-title rv d1">From data to decision.</h2>
       <p class="sec-sub rv d2">These portfolio projects map a complete analytical progression, evolving from descriptive intelligence to strategic foresight.</p>
+
     </div>
 
     <div class="pipe-track">
-      <div class="pipe-step rv d1">
+      <a class="pipe-step rv d1" href="https://github.com/raianne-k/statsagent/tree/main/projects/p01_marketplace_descriptive" target="_blank" rel="noopener noreferrer">
         <div class="pnode">P01</div>
         <div class="plabel">Describe</div>
         <div class="pdomain">Marketplace</div>
         <div class="pq">"What is happening?"</div>
-      </div>
-      <div class="pipe-step rv d2">
+      </a>
+
+      <a class="pipe-step rv d2" href="https://github.com/raianne-k/statsagent/tree/main/projects/p02_fintech_customer_segmentation" target="_blank" rel="noopener noreferrer">
         <div class="pnode">P02</div>
         <div class="plabel">Segment</div>
         <div class="pdomain">Fintech</div>
         <div class="pq">"Who behaves differently?"</div>
-      </div>
-      <div class="pipe-step rv d3">
+      </a>
+
+      <a class="pipe-step rv d3" href="https://github.com/raianne-k/statsagent/tree/main/projects/p03_saas_relationships" target="_blank" rel="noopener noreferrer">
         <div class="pnode">P03</div>
         <div class="plabel">Relate</div>
         <div class="pdomain">SaaS</div>
         <div class="pq">"What moves together?"</div>
-      </div>
-      <div class="pipe-step rv d4">
+      </a>
+
+      <a class="pipe-step rv d4" href="https://github.com/raianne-k/statsagent/tree/main/projects/p04_fintech_inference" target="_blank" rel="noopener noreferrer">
         <div class="pnode">P04</div>
         <div class="plabel">Infer</div>
         <div class="pdomain">Fintech</div>
         <div class="pq">"How confident are we?"</div>
-      </div>
-      <div class="pipe-step rv d5">
+
+      </a>
+      <a class="pipe-step rv d5" href="https://github.com/raianne-k/statsagent/tree/main/projects/p05_saas_churn_prediction" target="_blank" rel="noopener noreferrer">
         <div class="pnode">P05</div>
         <div class="plabel">Predict</div>
         <div class="pdomain">SaaS</div>
         <div class="pq">"Who is at risk?"</div>
-      </div>
-      <div class="pipe-step rv d6">
+      </a>
+
+      <a class="pipe-step rv d6" href="https://github.com/raianne-k/statsagent/tree/main/projects/p06_product_experimentation" target="_blank" rel="noopener noreferrer">
         <div class="pnode">P06</div>
         <div class="plabel">Test</div>
         <div class="pdomain">Product</div>
         <div class="pq">"Did the change work?"</div>
-      </div>
-      <div class="pipe-step rv d7">
+      </a>
+
+      <a class="pipe-step rv d7" href="https://github.com/raianne-k/statsagent/tree/main/projects/p07_saas_strategic_forecasting" target="_blank" rel="noopener noreferrer">
         <div class="pnode">P07</div>
         <div class="plabel">Forecast</div>
         <div class="pdomain">SaaS Strategy</div>
         <div class="pq">"What might happen next?"</div>
-      </div>
+      </a>
     </div>
   </div>
 </section>
@@ -446,45 +487,55 @@ footer{padding:4.5rem 2rem 3rem;border-top:1px solid var(--border);text-align:ce
 <div class="divider"></div>
 
 <!-- ── PROJECTS ── -->
+
 <section id="projects">
+
   <div class="wrap">
     <div class="proj-head">
-      <div class="sec-label rv">Statsagent Portfolio</div>
+
+      <div class="sec-label rv">StatsAgent Portfolio</div>
       <h2 class="sec-title rv d1">7 case studies.<br>One complete lifecycle.</h2>
+
     </div>
 
     <div class="proj-grid">
-      <div class="proj-card rv d1">
+      <a class="proj-card rv d1" href="https://github.com/raianne-k/statsagent/tree/main/projects/p01_marketplace_descriptive" target="_blank" rel="noopener noreferrer">
         <div class="proj-top"><span class="proj-num">P01</span><span class="proj-dom">Marketplace</span></div>
         <div class="proj-title">Descriptive Analytics & KPI Foundations</div>
         <div class="proj-focus">Operational baselines, key metric frameworks, and distribution analysis across marketplace activity patterns.</div>
-      </div>
-      <div class="proj-card rv d2">
+      </a>
+
+      <a class="proj-card rv d2" href="https://github.com/raianne-k/statsagent/tree/main/projects/p02_fintech_customer_segmentation" target="_blank" rel="noopener noreferrer">
         <div class="proj-top"><span class="proj-num">P02</span><span class="proj-dom">Fintech</span></div>
         <div class="proj-title">Customer Segmentation & Risk Profiling</div>
         <div class="proj-focus">Behavioural clustering and repayment-risk identification across a synthetic lending portfolio.</div>
-      </div>
-      <div class="proj-card rv d3">
+      </a>
+
+      <a class="proj-card rv d3" href="https://github.com/raianne-k/statsagent/tree/main/projects/p03_saas_relationships" target="_blank" rel="noopener noreferrer">
         <div class="proj-top"><span class="proj-num">P03</span><span class="proj-dom">SaaS</span></div>
         <div class="proj-title">Relationship Analysis & Operational Patterns</div>
         <div class="proj-focus">Correlation discovery and variable interaction mapping across account operational behaviour.</div>
-      </div>
-      <div class="proj-card rv d1">
+      </a>
+
+      <a class="proj-card rv d1" href="https://github.com/raianne-k/statsagent/tree/main/projects/p04_fintech_inference" target="_blank" rel="noopener noreferrer">
         <div class="proj-top"><span class="proj-num">P04</span><span class="proj-dom">Fintech</span></div>
         <div class="proj-title">Statistical Inference & Uncertainty Analysis</div>
         <div class="proj-focus">Hypothesis testing with confidence intervals, effect estimation, and assumption-aware interpretation.</div>
-      </div>
-      <div class="proj-card rv d2">
+      </a>
+
+      <a class="proj-card rv d2" href="https://github.com/raianne-k/statsagent/tree/main/projects/p05_saas_churn_prediction" target="_blank" rel="noopener noreferrer">
         <div class="proj-top"><span class="proj-num">P05</span><span class="proj-dom">SaaS</span></div>
         <div class="proj-title">Churn Prediction & Retention Modeling</div>
         <div class="proj-focus">Classification modelling for at-risk account identification with validation-first evaluation protocols.</div>
-      </div>
-      <div class="proj-card rv d3">
+      </a>
+
+      <a class="proj-card rv d3" href="https://github.com/raianne-k/statsagent/tree/main/projects/p06_product_experimentation" target="_blank" rel="noopener noreferrer">
         <div class="proj-top"><span class="proj-num">P06</span><span class="proj-dom">Product Analytics</span></div>
         <div class="proj-title">Experimentation & A/B Testing</div>
         <div class="proj-focus">Statistical power, randomisation checks, and effect estimation for product change validation.</div>
-      </div>
-      <div class="proj-card proj-cap rv d1">
+      </a>
+
+      <a class="proj-card proj-cap rv d1" href="https://github.com/raianne-k/statsagent/tree/main/projects/p07_saas_strategic_forecasting" target="_blank" rel="noopener noreferrer">
         <div class="proj-cap-inner">
           <div>
             <div class="proj-top" style="margin-bottom:.85rem"><span class="proj-num">P07</span><span class="proj-dom">SaaS Strategy</span></div>
@@ -498,7 +549,7 @@ footer{padding:4.5rem 2rem 3rem;border-top:1px solid var(--border);text-align:ce
             <span class="tag">Strategic Decisions</span>
           </div>
         </div>
-      </div>
+      </a>
     </div>
   </div>
 </section>

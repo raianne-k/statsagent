@@ -1,0 +1,3 @@
+experiment_group,users,avg_sessions,avg_feature_adoption,avg_subscription_value,activation_rate,retained_30d_rate,retained_60d_rate,churn_30d_rate
+control,4969,6.8384,2.9336,170.2609,0.491,0.5009,0.4532,0.4991
+treatment,5031,7.8752,3.4601,170.3054,0.5466,0.5406,0.4749,0.4594

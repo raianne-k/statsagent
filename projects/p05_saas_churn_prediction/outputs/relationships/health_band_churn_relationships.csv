@@ -1,0 +1,4 @@
+health_band,account_count,churn_rate_percent,median_days_since_login,median_nps,median_support_tickets
+high_health,496,18.55,10.0,37.0,2.0
+low_health,3372,44.04,14.0,-3.0,3.0
+medium_health,4012,29.14,11.0,17.0,2.0

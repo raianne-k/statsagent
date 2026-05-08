@@ -1,0 +1,342 @@
+[
+  {
+    "rule_id": "LOAD-01",
+    "action": "loaded_raw_dataset",
+    "details": {
+      "path": "projects/p04_fintech_inference/data/raw/fintech_repayment_inference_sample.csv",
+      "rows": 7000,
+      "columns": 23
+    }
+  },
+  {
+    "rule_id": "CL-01",
+    "action": "removed_exact_duplicates",
+    "details": {
+      "rows_before": 7000,
+      "rows_after": 7000,
+      "rows_removed": 0
+    }
+  },
+  {
+    "rule_id": "CL-02",
+    "action": "validated_binary_column",
+    "details": {
+      "column": "autopay_enabled",
+      "invalid_values_found": 0,
+      "flag_column_created": "autopay_enabled_invalid_flag",
+      "accepted_values": "0/1, true/false, yes/no"
+    }
+  },
+  {
+    "rule_id": "CL-02",
+    "action": "validated_binary_column",
+    "details": {
+      "column": "missed_payment_last_30d",
+      "invalid_values_found": 0,
+      "flag_column_created": "missed_payment_last_30d_invalid_flag",
+      "accepted_values": "0/1, true/false, yes/no"
+    }
+  },
+  {
+    "rule_id": "CL-02",
+    "action": "validated_binary_column",
+    "details": {
+      "column": "prior_delinquency_flag",
+      "invalid_values_found": 0,
+      "flag_column_created": "prior_delinquency_flag_invalid_flag",
+      "accepted_values": "0/1, true/false, yes/no"
+    }
+  },
+  {
+    "rule_id": "CL-02",
+    "action": "validated_binary_column",
+    "details": {
+      "column": "current_delinquency_flag",
+      "invalid_values_found": 0,
+      "flag_column_created": "current_delinquency_flag_invalid_flag",
+      "accepted_values": "0/1, true/false, yes/no"
+    }
+  },
+  {
+    "rule_id": "CL-02",
+    "action": "validated_binary_column",
+    "details": {
+      "column": "hardship_program_enrolled",
+      "invalid_values_found": 0,
+      "flag_column_created": "hardship_program_enrolled_invalid_flag",
+      "accepted_values": "0/1, true/false, yes/no"
+    }
+  },
+  {
+    "rule_id": "CL-02",
+    "action": "validated_binary_column",
+    "details": {
+      "column": "payment_recovery_flag",
+      "invalid_values_found": 0,
+      "flag_column_created": "payment_recovery_flag_invalid_flag",
+      "accepted_values": "0/1, true/false, yes/no"
+    }
+  },
+  {
+    "rule_id": "CL-02",
+    "action": "validated_binary_column",
+    "details": {
+      "column": "support_contact_last_30d",
+      "invalid_values_found": 0,
+      "flag_column_created": "support_contact_last_30d_invalid_flag",
+      "accepted_values": "0/1, true/false, yes/no"
+    }
+  },
+  {
+    "rule_id": "CL-06",
+    "action": "standardized_binary_column",
+    "details": {
+      "source_column": "autopay_enabled",
+      "clean_column_created": "autopay_enabled_clean",
+      "unmapped_or_invalid_values": 0
+    }
+  },
+  {
+    "rule_id": "CL-06",
+    "action": "standardized_binary_column",
+    "details": {
+      "source_column": "missed_payment_last_30d",
+      "clean_column_created": "missed_payment_last_30d_clean",
+      "unmapped_or_invalid_values": 0
+    }
+  },
+  {
+    "rule_id": "CL-06",
+    "action": "standardized_binary_column",
+    "details": {
+      "source_column": "prior_delinquency_flag",
+      "clean_column_created": "prior_delinquency_flag_clean",
+      "unmapped_or_invalid_values": 0
+    }
+  },
+  {
+    "rule_id": "CL-06",
+    "action": "standardized_binary_column",
+    "details": {
+      "source_column": "current_delinquency_flag",
+      "clean_column_created": "current_delinquency_flag_clean",
+      "unmapped_or_invalid_values": 0
+    }
+  },
+  {
+    "rule_id": "CL-06",
+    "action": "standardized_binary_column",
+    "details": {
+      "source_column": "hardship_program_enrolled",
+      "clean_column_created": "hardship_program_enrolled_clean",
+      "unmapped_or_invalid_values": 0
+    }
+  },
+  {
+    "rule_id": "CL-06",
+    "action": "standardized_binary_column",
+    "details": {
+      "source_column": "payment_recovery_flag",
+      "clean_column_created": "payment_recovery_flag_clean",
+      "unmapped_or_invalid_values": 0
+    }
+  },
+  {
+    "rule_id": "CL-06",
+    "action": "standardized_binary_column",
+    "details": {
+      "source_column": "support_contact_last_30d",
+      "clean_column_created": "support_contact_last_30d_clean",
+      "unmapped_or_invalid_values": 0
+    }
+  },
+  {
+    "rule_id": "CL-03",
+    "action": "flagged_missing_values",
+    "details": {
+      "column": "employment_type",
+      "missing_count": 126,
+      "flag_column_created": "employment_type_missing_flag",
+      "reason": "Missing employment type may reflect incomplete customer onboarding or unstable income documentation."
+    }
+  },
+  {
+    "rule_id": "CL-03",
+    "action": "flagged_missing_values",
+    "details": {
+      "column": "monthly_income",
+      "missing_count": 178,
+      "flag_column_created": "monthly_income_missing_flag",
+      "reason": "Missing income may affect repayment-risk inference and should be reviewed before downstream use."
+    }
+  },
+  {
+    "rule_id": "CL-04",
+    "action": "flagged_invalid_numeric_values",
+    "details": {
+      "column": "monthly_income",
+      "invalid_count": 0,
+      "bounds": {
+        "min": 0
+      },
+      "flag_column_created": "monthly_income_invalid_flag"
+    }
+  },
+  {
+    "rule_id": "CL-04",
+    "action": "flagged_invalid_numeric_values",
+    "details": {
+      "column": "loan_balance",
+      "invalid_count": 0,
+      "bounds": {
+        "min": 0
+      },
+      "flag_column_created": "loan_balance_invalid_flag"
+    }
+  },
+  {
+    "rule_id": "CL-04",
+    "action": "flagged_invalid_numeric_values",
+    "details": {
+      "column": "monthly_payment",
+      "invalid_count": 0,
+      "bounds": {
+        "min": 0
+      },
+      "flag_column_created": "monthly_payment_invalid_flag"
+    }
+  },
+  {
+    "rule_id": "CL-04",
+    "action": "flagged_invalid_numeric_values",
+    "details": {
+      "column": "loan_to_income_ratio",
+      "invalid_count": 0,
+      "bounds": {
+        "min": 0
+      },
+      "flag_column_created": "loan_to_income_ratio_invalid_flag"
+    }
+  },
+  {
+    "rule_id": "CL-04",
+    "action": "flagged_invalid_numeric_values",
+    "details": {
+      "column": "credit_utilization_percent",
+      "invalid_count": 0,
+      "bounds": {
+        "min": 0,
+        "max": 100
+      },
+      "flag_column_created": "credit_utilization_percent_invalid_flag"
+    }
+  },
+  {
+    "rule_id": "CL-04",
+    "action": "flagged_invalid_numeric_values",
+    "details": {
+      "column": "missed_payments_last_6m",
+      "invalid_count": 0,
+      "bounds": {
+        "min": 0
+      },
+      "flag_column_created": "missed_payments_last_6m_invalid_flag"
+    }
+  },
+  {
+    "rule_id": "CL-04",
+    "action": "flagged_invalid_numeric_values",
+    "details": {
+      "column": "days_late_average",
+      "invalid_count": 0,
+      "bounds": {
+        "min": 0
+      },
+      "flag_column_created": "days_late_average_invalid_flag"
+    }
+  },
+  {
+    "rule_id": "CL-04",
+    "action": "flagged_invalid_numeric_values",
+    "details": {
+      "column": "risk_score",
+      "invalid_count": 0,
+      "bounds": {
+        "min": 0,
+        "max": 1
+      },
+      "flag_column_created": "risk_score_invalid_flag"
+    }
+  },
+  {
+    "rule_id": "CL-04",
+    "action": "flagged_invalid_numeric_values",
+    "details": {
+      "column": "repayment_probability_score",
+      "invalid_count": 0,
+      "bounds": {
+        "min": 0,
+        "max": 1
+      },
+      "flag_column_created": "repayment_probability_score_invalid_flag"
+    }
+  },
+  {
+    "rule_id": "CL-05",
+    "action": "cast_column_to_category",
+    "details": {
+      "column": "region",
+      "new_type": "category"
+    }
+  },
+  {
+    "rule_id": "CL-05",
+    "action": "cast_column_to_category",
+    "details": {
+      "column": "income_band",
+      "new_type": "category"
+    }
+  },
+  {
+    "rule_id": "CL-05",
+    "action": "cast_column_to_category",
+    "details": {
+      "column": "employment_type",
+      "new_type": "category"
+    }
+  },
+  {
+    "rule_id": "CL-05",
+    "action": "cast_column_to_category",
+    "details": {
+      "column": "risk_tier",
+      "new_type": "category"
+    }
+  },
+  {
+    "rule_id": "CL-05",
+    "action": "cast_column_to_category",
+    "details": {
+      "column": "intervention_group",
+      "new_type": "category"
+    }
+  },
+  {
+    "rule_id": "CL-05",
+    "action": "cast_column_to_category",
+    "details": {
+      "column": "repayment_plan_type",
+      "new_type": "category"
+    }
+  },
+  {
+    "rule_id": "SAVE-01",
+    "action": "saved_cleaned_dataset_and_log",
+    "details": {
+      "cleaned_dataset_path": "projects/p04_fintech_inference/data/cleaned/fintech_repayment_inference_cleaned.csv",
+      "cleaning_log_path": "projects/p04_fintech_inference/outputs/cleaning/cleaning_log.json",
+      "rows": 7000,
+      "columns": 48
+    }
+  }
+]

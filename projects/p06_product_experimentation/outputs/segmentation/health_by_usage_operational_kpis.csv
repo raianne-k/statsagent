@@ -1,0 +1,9 @@
+health_band,usage_band,account_count,churn_rate_percent,median_renewal_probability,median_monthly_recurring_revenue,median_expansion_revenue,median_feature_adoption_rate,median_onboarding_completion_percent,median_seats_used_percent,median_days_since_last_login,median_support_tickets_last_90d,median_nps_score
+high_health,high_usage,47,12.77,84.35,730.76,198.87,75.59,67.97,79.13,10.0,2.0,46.0
+high_health,low_usage,16,37.5,81.35,159.74,26.02,33.88,78.74,92.62,6.0,1.0,50.0
+high_health,medium_usage,750,21.73,79.28,378.92,65.7,52.98,67.0,84.96,8.0,1.0,44.0
+low_health,low_usage,585,36.92,61.85,92.49,8.7,9.75,37.48,42.26,15.0,2.0,20.0
+low_health,medium_usage,7,57.14,65.97,313.88,7.78,37.53,31.79,30.04,30.0,2.0,7.5
+medium_health,high_usage,1,100.0,66.97,1414.57,2.84,70.76,72.2,37.43,24.0,3.0,17.0
+medium_health,low_usage,2904,31.78,70.03,135.39,16.73,25.66,52.18,68.48,11.0,2.0,30.0
+medium_health,medium_usage,1690,26.09,72.42,238.44,34.84,41.76,53.12,68.18,11.0,2.0,33.0

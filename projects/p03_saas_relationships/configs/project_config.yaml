@@ -1,0 +1,133 @@
+project:
+  name: p03_saas_relationships
+  domain: saas
+  stage: relationship_analysis_baseline
+
+data:
+  raw_path: projects/p03_saas_relationships/data/raw/saas_account_sample.csv
+  cleaned_path: projects/p03_saas_relationships/data/cleaned/saas_account_cleaned.csv
+
+outputs:
+  cleaning_log: projects/p03_saas_relationships/outputs/cleaning/cleaning_log.json
+  validation_log: projects/p03_saas_relationships/outputs/validation/validation_log.json
+  metadata_path: projects/p03_saas_relationships/outputs/metadata/run_metadata.json
+  report_path: projects/p03_saas_relationships/outputs/reports/final_report.md
+
+variables:
+  id_columns:
+    - account_id
+
+  binary_columns:
+    - churn_flag
+
+  categorical_columns:
+    - industry
+    - company_size
+    - region
+    - contract_type
+    - subscription_plan
+    - nps_band
+    - health_band
+    - usage_band
+    - revenue_band
+    - login_recency_band
+
+  continuous_columns:
+    - account_age_months
+    - monthly_recurring_revenue
+    - seat_count
+    - seats_used_percent
+    - weekly_active_users
+    - feature_adoption_rate
+    - avg_session_minutes
+    - admin_logins_last_30d
+    - onboarding_completion_percent
+    - days_since_last_login
+    - support_tickets_last_90d
+    - nps_score
+    - account_health_score
+    - renewal_probability
+    - expansion_revenue
+
+invalid_numeric_values:
+  account_age_months:
+    min: 0
+
+  monthly_recurring_revenue:
+    min: 0
+
+  seat_count:
+    min: 0
+
+  seats_used_percent:
+    min: 0
+    max: 100
+
+  weekly_active_users:
+    min: 0
+
+  feature_adoption_rate:
+    min: 0
+    max: 100
+
+  avg_session_minutes:
+    min: 0
+
+  admin_logins_last_30d:
+    min: 0
+
+  onboarding_completion_percent:
+    min: 0
+    max: 100
+
+  days_since_last_login:
+    min: 0
+
+  support_tickets_last_90d:
+    min: 0
+
+  nps_score:
+    min: -100
+    max: 100
+
+  account_health_score:
+    min: 0
+    max: 1
+
+  renewal_probability:
+    min: 0
+    max: 100
+
+  expansion_revenue:
+    min: 0
+
+missing_value_policy:
+  nps_score:
+    action: flag_and_keep
+    reason: "Missing NPS may reflect lower-response or lower-engagement accounts."
+
+  industry:
+    action: flag_and_keep
+    reason: "Missing industry may reflect incomplete account enrichment."
+
+cleaning_policy:
+  exclude_id_columns_from_analysis: true
+  keep_id_columns_in_cleaned_dataset: true
+  preserve_raw_data: true
+  conservative_cleaning: true
+
+governance:
+  synthetic_data: true
+  human_review_required: true
+  ai_assisted_analysis: true
+  allow_row_level_llm_exposure: false
+  llm_exposure_policy: summary_only
+
+notes:
+  relationship_goal: >
+    Identify behavioral and operational relationships associated with account health,
+    renewal probability, churn risk, product usage, and expansion potential.
+
+  governance_note: >
+    This dataset is synthetic and designed for portfolio and analytical learning purposes.
+    Outputs require human review before operational or business-critical use.

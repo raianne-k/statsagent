@@ -1,13 +1,22 @@
-# Environment variables
-.env
-
-# Python cache
+# Python
 __pycache__/
 *.pyc
 
-# Virtual environments
-.venv/
-venv/
-
-# OS files
+# Mac
 .DS_Store
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Temp
+temp/
+tmp/
+debug/
+
+# Large outputs
+outputs/archive/
+outputs/temp/
+
+# Environment
+.env
+venv/

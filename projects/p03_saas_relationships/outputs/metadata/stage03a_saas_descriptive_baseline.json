@@ -1,0 +1,19 @@
+{
+  "generated_at": "2026-05-07T14:37:11",
+  "project": "p03_saas_relationships",
+  "run_name": "stage03a_saas_descriptive_baseline",
+  "task": "descriptive_stats",
+  "dataset_analyzed": "projects/p03_saas_relationships/data/cleaned/saas_account_cleaned.csv",
+  "cleaning_rules": "projects/p03_saas_relationships/configs/project_config.yaml",
+  "report_path": "projects/p03_saas_relationships/outputs/reports/stage03a_saas_descriptive_baseline.md",
+  "report_version": "stage03a_saas_descriptive_baseline",
+  "validation_status": "pass",
+  "validation_warnings": [],
+  "validation_issues": [],
+  "critical_count": 0,
+  "warning_count": 0,
+  "llm_assisted": true,
+  "manual_review_required": true,
+  "manual_review_completed": false,
+  "governance_note": "AI-assisted analysis output; human review required before business-critical use."
+}

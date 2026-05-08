@@ -1,0 +1,13 @@
+health_band,mrr_band,account_month_count,unique_accounts,total_mrr,total_revenue_at_risk,avg_churn_rate,avg_renewal_probability,avg_product_health_score,avg_days_since_last_login,avg_support_tickets,revenue_at_risk_rate,executive_attention_score
+low_health,low_mrr,250,94,28287.43,2885.51,0.14,89.723,0.289,30.94,1.667,0.102,0.266
+low_health,enterprise_mrr,34,14,439497.35,42356.14,0.147,89.958,0.315,25.706,1.606,0.096,0.259
+low_health,mid_mrr,136,49,66866.46,6465.51,0.125,90.004,0.297,29.007,1.85,0.097,0.257
+low_health,high_mrr,60,30,127647.99,12258.08,0.083,90.484,0.309,24.033,1.683,0.096,0.241
+medium_health,low_mrr,5713,777,658527.33,14184.88,0.052,97.771,0.539,15.849,1.328,0.022,0.141
+medium_health,mid_mrr,3887,553,2046188.87,45294.19,0.042,97.791,0.542,15.908,1.367,0.022,0.137
+medium_health,enterprise_mrr,932,137,10629007.45,240136.68,0.038,97.767,0.541,16.95,1.307,0.023,0.136
+medium_health,high_mrr,2253,330,5111349.27,97765.56,0.047,98.015,0.548,15.986,1.336,0.019,0.136
+high_health,low_mrr,3267,478,412185.6,2348.16,0.024,99.422,0.731,9.514,1.224,0.006,0.077
+high_health,mid_mrr,2775,381,1460237.75,7462.29,0.026,99.472,0.74,9.531,1.205,0.005,0.075
+high_health,enterprise_mrr,1044,113,12416366.17,58546.1,0.022,99.515,0.742,9.669,1.127,0.005,0.073
+high_health,high_mrr,2031,247,4655909.52,21620.23,0.018,99.548,0.749,9.637,1.222,0.005,0.07

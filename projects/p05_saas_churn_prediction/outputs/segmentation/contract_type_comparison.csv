@@ -1,0 +1,3 @@
+contract_type,account_count,churn_rate_percent,median_account_health_score,median_renewal_probability_score,median_feature_adoption_rate,median_seat_utilization_percent,median_days_since_last_login,median_support_ticket_count_90d,median_unresolved_ticket_count,median_monthly_recurring_revenue,onboarding_completion_rate_percent,support_escalation_rate_percent,renewal_meeting_rate_percent
+annual,2996,25.23,54.24,0.75,49.92,54.38,11.0,2.0,0.0,173.58,64.12,12.88,30.64
+monthly,5004,40.73,37.47,0.59,32.69,37.69,13.0,2.0,1.0,176.04,52.18,24.32,21.48

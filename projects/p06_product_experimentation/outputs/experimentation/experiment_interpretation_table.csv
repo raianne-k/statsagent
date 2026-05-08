@@ -1,0 +1,9 @@
+metric,direction,absolute_lift,statistically_significant,interpretation
+activation_flag,improved,0.0556,True,activation_flag improved by 0.0556 between treatment and control.
+retained_30d,improved,0.0397,True,retained_30d improved by 0.0397 between treatment and control.
+onboarding_completion_flag,improved,0.0559,True,onboarding_completion_flag improved by 0.0559 between treatment and control.
+retained_60d,improved,0.0216,True,retained_60d improved by 0.0216 between treatment and control.
+churn_30d,declined,-0.0397,True,churn_30d declined by -0.0397 between treatment and control.
+upgrade_flag,improved,0.0139,False,upgrade_flag improved by 0.0139 between treatment and control.
+expansion_revenue_flag,improved,0.0124,False,expansion_revenue_flag improved by 0.0124 between treatment and control.
+negative_feedback_flag,improved,0.0128,True,negative_feedback_flag improved by 0.0128 between treatment and control.

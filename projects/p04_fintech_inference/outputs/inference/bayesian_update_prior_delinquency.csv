@@ -1,0 +1,4 @@
+evidence,outcome,group,n,probability_percent
+prior_delinquency_flag,current_delinquency_flag,overall_prior,7000,16.04
+prior_delinquency_flag,current_delinquency_flag,evidence_present,1146,25.13
+prior_delinquency_flag,current_delinquency_flag,evidence_absent,5854,14.26

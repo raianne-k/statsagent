@@ -1,0 +1,2 @@
+group,outcome,highest_group,highest_rate_percent,highest_n,lowest_group,lowest_rate_percent,lowest_n,rate_difference_percent,interpretation_note
+risk_tier,current_delinquency_flag,high_risk,24.31,255,low_risk,13.24,4236,11.07,Rate difference is observational only and does not imply causality.

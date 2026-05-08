@@ -1,0 +1,335 @@
+[
+  {
+    "rule_id": "LOAD-01",
+    "action": "loaded_raw_dataset",
+    "details": {
+      "path": "projects/p03_saas_relationships/data/raw/saas_account_sample.csv",
+      "rows": 6000,
+      "columns": 27
+    }
+  },
+  {
+    "rule_id": "CL-01",
+    "action": "removed_exact_duplicates",
+    "details": {
+      "rows_before": 6000,
+      "rows_after": 6000,
+      "rows_removed": 0
+    }
+  },
+  {
+    "rule_id": "CL-02",
+    "action": "validated_binary_column",
+    "details": {
+      "column": "churn_flag",
+      "invalid_values_found": 0,
+      "flag_column_created": "churn_flag_invalid_flag",
+      "accepted_values": "0/1, true/false, yes/no"
+    }
+  },
+  {
+    "rule_id": "CL-06",
+    "action": "standardized_binary_column",
+    "details": {
+      "source_column": "churn_flag",
+      "clean_column_created": "churn_flag_clean",
+      "unmapped_or_invalid_values": 0
+    }
+  },
+  {
+    "rule_id": "CL-03",
+    "action": "flagged_missing_values",
+    "details": {
+      "column": "nps_score",
+      "missing_count": 1018,
+      "flag_column_created": "nps_score_missing_flag",
+      "reason": "Missing NPS may reflect lower-response or lower-engagement accounts."
+    }
+  },
+  {
+    "rule_id": "CL-03",
+    "action": "flagged_missing_values",
+    "details": {
+      "column": "industry",
+      "missing_count": 208,
+      "flag_column_created": "industry_missing_flag",
+      "reason": "Missing industry may reflect incomplete account enrichment."
+    }
+  },
+  {
+    "rule_id": "CL-04",
+    "action": "flagged_invalid_numeric_values",
+    "details": {
+      "column": "account_age_months",
+      "invalid_count": 0,
+      "bounds": {
+        "min": 0
+      },
+      "flag_column_created": "account_age_months_invalid_flag"
+    }
+  },
+  {
+    "rule_id": "CL-04",
+    "action": "flagged_invalid_numeric_values",
+    "details": {
+      "column": "monthly_recurring_revenue",
+      "invalid_count": 0,
+      "bounds": {
+        "min": 0
+      },
+      "flag_column_created": "monthly_recurring_revenue_invalid_flag"
+    }
+  },
+  {
+    "rule_id": "CL-04",
+    "action": "flagged_invalid_numeric_values",
+    "details": {
+      "column": "seat_count",
+      "invalid_count": 0,
+      "bounds": {
+        "min": 0
+      },
+      "flag_column_created": "seat_count_invalid_flag"
+    }
+  },
+  {
+    "rule_id": "CL-04",
+    "action": "flagged_invalid_numeric_values",
+    "details": {
+      "column": "seats_used_percent",
+      "invalid_count": 0,
+      "bounds": {
+        "min": 0,
+        "max": 100
+      },
+      "flag_column_created": "seats_used_percent_invalid_flag"
+    }
+  },
+  {
+    "rule_id": "CL-04",
+    "action": "flagged_invalid_numeric_values",
+    "details": {
+      "column": "weekly_active_users",
+      "invalid_count": 0,
+      "bounds": {
+        "min": 0
+      },
+      "flag_column_created": "weekly_active_users_invalid_flag"
+    }
+  },
+  {
+    "rule_id": "CL-04",
+    "action": "flagged_invalid_numeric_values",
+    "details": {
+      "column": "feature_adoption_rate",
+      "invalid_count": 0,
+      "bounds": {
+        "min": 0,
+        "max": 100
+      },
+      "flag_column_created": "feature_adoption_rate_invalid_flag"
+    }
+  },
+  {
+    "rule_id": "CL-04",
+    "action": "flagged_invalid_numeric_values",
+    "details": {
+      "column": "avg_session_minutes",
+      "invalid_count": 0,
+      "bounds": {
+        "min": 0
+      },
+      "flag_column_created": "avg_session_minutes_invalid_flag"
+    }
+  },
+  {
+    "rule_id": "CL-04",
+    "action": "flagged_invalid_numeric_values",
+    "details": {
+      "column": "admin_logins_last_30d",
+      "invalid_count": 0,
+      "bounds": {
+        "min": 0
+      },
+      "flag_column_created": "admin_logins_last_30d_invalid_flag"
+    }
+  },
+  {
+    "rule_id": "CL-04",
+    "action": "flagged_invalid_numeric_values",
+    "details": {
+      "column": "onboarding_completion_percent",
+      "invalid_count": 0,
+      "bounds": {
+        "min": 0,
+        "max": 100
+      },
+      "flag_column_created": "onboarding_completion_percent_invalid_flag"
+    }
+  },
+  {
+    "rule_id": "CL-04",
+    "action": "flagged_invalid_numeric_values",
+    "details": {
+      "column": "days_since_last_login",
+      "invalid_count": 0,
+      "bounds": {
+        "min": 0
+      },
+      "flag_column_created": "days_since_last_login_invalid_flag"
+    }
+  },
+  {
+    "rule_id": "CL-04",
+    "action": "flagged_invalid_numeric_values",
+    "details": {
+      "column": "support_tickets_last_90d",
+      "invalid_count": 0,
+      "bounds": {
+        "min": 0
+      },
+      "flag_column_created": "support_tickets_last_90d_invalid_flag"
+    }
+  },
+  {
+    "rule_id": "CL-04",
+    "action": "flagged_invalid_numeric_values",
+    "details": {
+      "column": "nps_score",
+      "invalid_count": 0,
+      "bounds": {
+        "min": -100,
+        "max": 100
+      },
+      "flag_column_created": "nps_score_invalid_flag"
+    }
+  },
+  {
+    "rule_id": "CL-04",
+    "action": "flagged_invalid_numeric_values",
+    "details": {
+      "column": "account_health_score",
+      "invalid_count": 0,
+      "bounds": {
+        "min": 0,
+        "max": 1
+      },
+      "flag_column_created": "account_health_score_invalid_flag"
+    }
+  },
+  {
+    "rule_id": "CL-04",
+    "action": "flagged_invalid_numeric_values",
+    "details": {
+      "column": "renewal_probability",
+      "invalid_count": 0,
+      "bounds": {
+        "min": 0,
+        "max": 100
+      },
+      "flag_column_created": "renewal_probability_invalid_flag"
+    }
+  },
+  {
+    "rule_id": "CL-04",
+    "action": "flagged_invalid_numeric_values",
+    "details": {
+      "column": "expansion_revenue",
+      "invalid_count": 0,
+      "bounds": {
+        "min": 0
+      },
+      "flag_column_created": "expansion_revenue_invalid_flag"
+    }
+  },
+  {
+    "rule_id": "CL-05",
+    "action": "cast_column_to_category",
+    "details": {
+      "column": "industry",
+      "new_type": "category"
+    }
+  },
+  {
+    "rule_id": "CL-05",
+    "action": "cast_column_to_category",
+    "details": {
+      "column": "company_size",
+      "new_type": "category"
+    }
+  },
+  {
+    "rule_id": "CL-05",
+    "action": "cast_column_to_category",
+    "details": {
+      "column": "region",
+      "new_type": "category"
+    }
+  },
+  {
+    "rule_id": "CL-05",
+    "action": "cast_column_to_category",
+    "details": {
+      "column": "contract_type",
+      "new_type": "category"
+    }
+  },
+  {
+    "rule_id": "CL-05",
+    "action": "cast_column_to_category",
+    "details": {
+      "column": "subscription_plan",
+      "new_type": "category"
+    }
+  },
+  {
+    "rule_id": "CL-05",
+    "action": "cast_column_to_category",
+    "details": {
+      "column": "nps_band",
+      "new_type": "category"
+    }
+  },
+  {
+    "rule_id": "CL-05",
+    "action": "cast_column_to_category",
+    "details": {
+      "column": "health_band",
+      "new_type": "category"
+    }
+  },
+  {
+    "rule_id": "CL-05",
+    "action": "cast_column_to_category",
+    "details": {
+      "column": "usage_band",
+      "new_type": "category"
+    }
+  },
+  {
+    "rule_id": "CL-05",
+    "action": "cast_column_to_category",
+    "details": {
+      "column": "revenue_band",
+      "new_type": "category"
+    }
+  },
+  {
+    "rule_id": "CL-05",
+    "action": "cast_column_to_category",
+    "details": {
+      "column": "login_recency_band",
+      "new_type": "category"
+    }
+  },
+  {
+    "rule_id": "SAVE-01",
+    "action": "saved_cleaned_dataset_and_log",
+    "details": {
+      "cleaned_dataset_path": "projects/p03_saas_relationships/data/cleaned/saas_account_cleaned.csv",
+      "cleaning_log_path": "projects/p03_saas_relationships/outputs/cleaning/cleaning_log.json",
+      "rows": 6000,
+      "columns": 46
+    }
+  }
+]

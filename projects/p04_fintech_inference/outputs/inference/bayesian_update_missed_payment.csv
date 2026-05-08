@@ -1,0 +1,4 @@
+evidence,outcome,group,n,probability_percent
+missed_payment_last_30d,current_delinquency_flag,overall_prior,7000,16.04
+missed_payment_last_30d,current_delinquency_flag,evidence_present,1196,26.34
+missed_payment_last_30d,current_delinquency_flag,evidence_absent,5804,13.92

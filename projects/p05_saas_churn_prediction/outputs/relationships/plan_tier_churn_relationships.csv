@@ -1,0 +1,5 @@
+plan_tier,account_count,churn_rate_percent,median_mrr,median_health_score,median_feature_adoption
+business,1580,32.91,840.355,46.379999999999995,42.9
+enterprise,797,33.12,4300.53,48.980000000000004,43.22
+growth,2656,35.35,202.805,43.79,38.815
+starter,2967,36.1,52.56,40.26,35.03

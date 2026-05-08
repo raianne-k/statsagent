@@ -1,0 +1,5 @@
+revenue_band,account_count,churn_rate_percent,median_account_health_score,median_renewal_probability_score,median_feature_adoption_rate,median_seat_utilization_percent,median_days_since_last_login,median_support_ticket_count_90d,median_unresolved_ticket_count,median_monthly_recurring_revenue,onboarding_completion_rate_percent,support_escalation_rate_percent,renewal_meeting_rate_percent
+enterprise_mrr,1084,32.75,48.21,0.67,43.28,48.09,12.0,2.0,0.0,3116.18,59.32,17.9,26.94
+high_mrr,1117,32.32,45.38,0.65,41.98,45.86,11.0,2.0,1.0,819.91,57.48,18.17,25.34
+low_mrr,2843,37.11,40.44,0.64,35.24,40.45,13.0,2.0,1.0,51.38,55.08,21.77,22.48
+mid_mrr,2956,34.61,43.78,0.65,38.92,43.41,12.0,2.0,1.0,207.32,56.87,19.86,26.35

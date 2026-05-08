@@ -1,0 +1,14 @@
+variable,correlation_with_churn,absolute_correlation
+account_health_score,-0.1928,0.1928
+renewal_probability_score,-0.1819,0.1819
+seat_utilization_percent,-0.1381,0.1381
+nps_score,-0.1253,0.1253
+feature_adoption_rate,-0.1195,0.1195
+login_frequency_30d,-0.1171,0.1171
+unresolved_ticket_count,0.1076,0.1076
+avg_session_duration_minutes,-0.0981,0.0981
+support_ticket_count_90d,0.0769,0.0769
+days_since_last_login,0.0678,0.0678
+tenure_months,-0.0414,0.0414
+weekly_active_users,-0.0402,0.0402
+monthly_recurring_revenue,-0.0208,0.0208

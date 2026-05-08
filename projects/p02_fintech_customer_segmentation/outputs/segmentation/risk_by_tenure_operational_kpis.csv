@@ -1,0 +1,13 @@
+risk_band,tenure_cohort,customer_count,delinquency_rate_percent,autopay_rate_percent,median_repayment_rate_percent,median_loan_to_income_ratio,median_savings_balance,median_missed_payments,median_avg_days_late,median_products
+high_risk,new_0_3m,7,28.57,57.14,84.44,5.37,686.85,2.0,3.5,1.0
+high_risk,early_4_12m,10,50.0,60.0,82.2,6.1,668.91,2.0,6.45,1.5
+high_risk,established_13_24m,3,33.33,0.0,76.44,5.99,442.74,3.0,4.9,2.0
+high_risk,mature_25m_plus,5,40.0,40.0,75.98,4.59,185.42,3.0,9.6,1.0
+low_risk,new_0_3m,1534,15.51,66.3,94.14,0.74,907.63,1.0,2.25,1.0
+low_risk,early_4_12m,2534,12.43,67.13,94.37,0.73,886.63,1.0,2.4,1.0
+low_risk,established_13_24m,1638,13.61,66.12,94.13,0.71,932.4,1.0,2.5,1.0
+low_risk,mature_25m_plus,1191,14.02,64.06,94.51,0.72,954.2,1.0,1.9,1.0
+medium_risk,new_0_3m,234,23.08,61.54,89.94,2.12,565.7,1.0,5.1,1.0
+medium_risk,early_4_12m,418,21.29,58.13,90.92,2.06,628.69,1.0,3.6,1.0
+medium_risk,established_13_24m,260,19.23,62.31,90.46,2.22,652.98,1.0,4.25,1.0
+medium_risk,mature_25m_plus,166,24.7,55.42,89.58,2.1,629.92,1.0,5.1,1.0

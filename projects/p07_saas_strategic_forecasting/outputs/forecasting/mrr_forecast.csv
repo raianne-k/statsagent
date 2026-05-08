@@ -1,0 +1,7 @@
+forecast_month,forecast_total_mrr,forecast_mrr_lower,forecast_mrr_upper,forecast_horizon_month,forecast_method
+2025-01-01,2030753.38,1880327.2,2193213.65,1,linear_projection_with_operational_risk_adjustment_and_uncertainty_band
+2025-02-01,2077459.17,1790913.07,2409852.63,2,linear_projection_with_operational_risk_adjustment_and_uncertainty_band
+2025-03-01,2123855.98,1712787.08,2633581.41,3,linear_projection_with_operational_risk_adjustment_and_uncertainty_band
+2025-04-01,2169943.81,1643896.83,2864325.83,4,linear_projection_with_operational_risk_adjustment_and_uncertainty_band
+2025-05-01,2215722.67,1582659.05,3102011.74,5,linear_projection_with_operational_risk_adjustment_and_uncertainty_band
+2025-06-01,2261192.55,1527832.8,3346564.97,6,linear_projection_with_operational_risk_adjustment_and_uncertainty_band

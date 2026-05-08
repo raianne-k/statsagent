@@ -1,0 +1,7 @@
+forecast_month,forecast_churn_rate,forecast_churn_lower,forecast_churn_upper,forecast_horizon_month,forecast_method
+2025-01-01,0.0439,0.0414,0.0465,1,linear_projection_with_operational_pressure_and_uncertainty_band
+2025-02-01,0.0491,0.0438,0.0549,2,linear_projection_with_operational_pressure_and_uncertainty_band
+2025-03-01,0.0543,0.046,0.064,3,linear_projection_with_operational_pressure_and_uncertainty_band
+2025-04-01,0.0595,0.048,0.0737,4,linear_projection_with_operational_pressure_and_uncertainty_band
+2025-05-01,0.0647,0.0497,0.0841,5,linear_projection_with_operational_pressure_and_uncertainty_band
+2025-06-01,0.0699,0.0514,0.095,6,linear_projection_with_operational_pressure_and_uncertainty_band

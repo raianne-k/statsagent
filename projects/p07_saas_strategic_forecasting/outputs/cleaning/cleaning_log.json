@@ -1,0 +1,356 @@
+[
+  {
+    "rule_id": "LOAD-01",
+    "action": "loaded_raw_dataset",
+    "details": {
+      "path": "projects/p07_saas_strategic_forecasting/data/raw/saas_account_monthly_forecasting.csv",
+      "rows": 22382,
+      "columns": 32
+    }
+  },
+  {
+    "rule_id": "CL-01",
+    "action": "removed_exact_duplicates",
+    "details": {
+      "rows_before": 22382,
+      "rows_after": 22382,
+      "rows_removed": 0
+    }
+  },
+  {
+    "rule_id": "CL-02",
+    "action": "validated_binary_column",
+    "details": {
+      "column": "downgrade_flag",
+      "invalid_values_found": 0,
+      "flag_column_created": "downgrade_flag_invalid_flag",
+      "accepted_values": "0/1, true/false, yes/no"
+    }
+  },
+  {
+    "rule_id": "CL-02",
+    "action": "validated_binary_column",
+    "details": {
+      "column": "churn_flag",
+      "invalid_values_found": 0,
+      "flag_column_created": "churn_flag_invalid_flag",
+      "accepted_values": "0/1, true/false, yes/no"
+    }
+  },
+  {
+    "rule_id": "CL-06",
+    "action": "standardized_binary_column",
+    "details": {
+      "source_column": "downgrade_flag",
+      "clean_column_created": "downgrade_flag_clean",
+      "unmapped_or_invalid_values": 0
+    }
+  },
+  {
+    "rule_id": "CL-06",
+    "action": "standardized_binary_column",
+    "details": {
+      "source_column": "churn_flag",
+      "clean_column_created": "churn_flag_clean",
+      "unmapped_or_invalid_values": 0
+    }
+  },
+  {
+    "rule_id": "CL-03",
+    "action": "flagged_missing_values",
+    "details": {
+      "column": "feature_adoption_rate",
+      "missing_count": 466,
+      "flag_column_created": "feature_adoption_rate_missing_flag",
+      "reason": "Missing adoption may reflect low usage, early lifecycle accounts, or incomplete product instrumentation."
+    }
+  },
+  {
+    "rule_id": "CL-03",
+    "action": "flagged_missing_values",
+    "details": {
+      "column": "usage_band",
+      "missing_count": 466,
+      "flag_column_created": "usage_band_missing_flag",
+      "reason": "Usage band depends on feature adoption and may be missing when adoption is not available."
+    }
+  },
+  {
+    "rule_id": "CL-03",
+    "action": "flagged_missing_values",
+    "details": {
+      "column": "support_tickets",
+      "missing_count": 262,
+      "flag_column_created": "support_tickets_missing_flag",
+      "reason": "Missing support-ticket values may reflect operational logging gaps."
+    }
+  },
+  {
+    "rule_id": "CL-03",
+    "action": "flagged_missing_values",
+    "details": {
+      "column": "industry",
+      "missing_count": 291,
+      "flag_column_created": "industry_missing_flag",
+      "reason": "Missing industry may reflect incomplete account enrichment."
+    }
+  },
+  {
+    "rule_id": "CL-04",
+    "action": "flagged_invalid_numeric_values",
+    "details": {
+      "column": "cohort_age_months",
+      "invalid_count": 0,
+      "bounds": {
+        "min": 0
+      },
+      "flag_column_created": "cohort_age_months_invalid_flag"
+    }
+  },
+  {
+    "rule_id": "CL-04",
+    "action": "flagged_invalid_numeric_values",
+    "details": {
+      "column": "active_users",
+      "invalid_count": 0,
+      "bounds": {
+        "min": 0
+      },
+      "flag_column_created": "active_users_invalid_flag"
+    }
+  },
+  {
+    "rule_id": "CL-04",
+    "action": "flagged_invalid_numeric_values",
+    "details": {
+      "column": "feature_adoption_rate",
+      "invalid_count": 0,
+      "bounds": {
+        "min": 0,
+        "max": 100
+      },
+      "flag_column_created": "feature_adoption_rate_invalid_flag"
+    }
+  },
+  {
+    "rule_id": "CL-04",
+    "action": "flagged_invalid_numeric_values",
+    "details": {
+      "column": "usage_frequency",
+      "invalid_count": 0,
+      "bounds": {
+        "min": 0,
+        "max": 31
+      },
+      "flag_column_created": "usage_frequency_invalid_flag"
+    }
+  },
+  {
+    "rule_id": "CL-04",
+    "action": "flagged_invalid_numeric_values",
+    "details": {
+      "column": "support_tickets",
+      "invalid_count": 0,
+      "bounds": {
+        "min": 0
+      },
+      "flag_column_created": "support_tickets_invalid_flag"
+    }
+  },
+  {
+    "rule_id": "CL-04",
+    "action": "flagged_invalid_numeric_values",
+    "details": {
+      "column": "days_since_last_login",
+      "invalid_count": 0,
+      "bounds": {
+        "min": 0,
+        "max": 180
+      },
+      "flag_column_created": "days_since_last_login_invalid_flag"
+    }
+  },
+  {
+    "rule_id": "CL-04",
+    "action": "flagged_invalid_numeric_values",
+    "details": {
+      "column": "onboarding_completion",
+      "invalid_count": 0,
+      "bounds": {
+        "min": 0,
+        "max": 100
+      },
+      "flag_column_created": "onboarding_completion_invalid_flag"
+    }
+  },
+  {
+    "rule_id": "CL-04",
+    "action": "flagged_invalid_numeric_values",
+    "details": {
+      "column": "product_health_score",
+      "invalid_count": 0,
+      "bounds": {
+        "min": 0,
+        "max": 1
+      },
+      "flag_column_created": "product_health_score_invalid_flag"
+    }
+  },
+  {
+    "rule_id": "CL-04",
+    "action": "flagged_invalid_numeric_values",
+    "details": {
+      "column": "rolling_health_3m",
+      "invalid_count": 0,
+      "bounds": {
+        "min": 0,
+        "max": 1
+      },
+      "flag_column_created": "rolling_health_3m_invalid_flag"
+    }
+  },
+  {
+    "rule_id": "CL-04",
+    "action": "flagged_invalid_numeric_values",
+    "details": {
+      "column": "rolling_usage_3m",
+      "invalid_count": 0,
+      "bounds": {
+        "min": 0,
+        "max": 31
+      },
+      "flag_column_created": "rolling_usage_3m_invalid_flag"
+    }
+  },
+  {
+    "rule_id": "CL-04",
+    "action": "flagged_invalid_numeric_values",
+    "details": {
+      "column": "monthly_recurring_revenue",
+      "invalid_count": 0,
+      "bounds": {
+        "min": 0
+      },
+      "flag_column_created": "monthly_recurring_revenue_invalid_flag"
+    }
+  },
+  {
+    "rule_id": "CL-04",
+    "action": "flagged_invalid_numeric_values",
+    "details": {
+      "column": "expansion_revenue",
+      "invalid_count": 0,
+      "bounds": {
+        "min": 0
+      },
+      "flag_column_created": "expansion_revenue_invalid_flag"
+    }
+  },
+  {
+    "rule_id": "CL-04",
+    "action": "flagged_invalid_numeric_values",
+    "details": {
+      "column": "renewal_probability",
+      "invalid_count": 0,
+      "bounds": {
+        "min": 0,
+        "max": 100
+      },
+      "flag_column_created": "renewal_probability_invalid_flag"
+    }
+  },
+  {
+    "rule_id": "CL-04",
+    "action": "flagged_invalid_numeric_values",
+    "details": {
+      "column": "revenue_at_risk",
+      "invalid_count": 0,
+      "bounds": {
+        "min": 0
+      },
+      "flag_column_created": "revenue_at_risk_invalid_flag"
+    }
+  },
+  {
+    "rule_id": "CL-05",
+    "action": "cast_column_to_category",
+    "details": {
+      "column": "plan_type",
+      "new_type": "category"
+    }
+  },
+  {
+    "rule_id": "CL-05",
+    "action": "cast_column_to_category",
+    "details": {
+      "column": "company_size",
+      "new_type": "category"
+    }
+  },
+  {
+    "rule_id": "CL-05",
+    "action": "cast_column_to_category",
+    "details": {
+      "column": "industry",
+      "new_type": "category"
+    }
+  },
+  {
+    "rule_id": "CL-05",
+    "action": "cast_column_to_category",
+    "details": {
+      "column": "region",
+      "new_type": "category"
+    }
+  },
+  {
+    "rule_id": "CL-05",
+    "action": "cast_column_to_category",
+    "details": {
+      "column": "acquisition_channel",
+      "new_type": "category"
+    }
+  },
+  {
+    "rule_id": "CL-05",
+    "action": "cast_column_to_category",
+    "details": {
+      "column": "health_band",
+      "new_type": "category"
+    }
+  },
+  {
+    "rule_id": "CL-05",
+    "action": "cast_column_to_category",
+    "details": {
+      "column": "usage_band",
+      "new_type": "category"
+    }
+  },
+  {
+    "rule_id": "CL-05",
+    "action": "cast_column_to_category",
+    "details": {
+      "column": "login_recency_band",
+      "new_type": "category"
+    }
+  },
+  {
+    "rule_id": "CL-05",
+    "action": "cast_column_to_category",
+    "details": {
+      "column": "mrr_band",
+      "new_type": "category"
+    }
+  },
+  {
+    "rule_id": "SAVE-01",
+    "action": "saved_cleaned_dataset_and_log",
+    "details": {
+      "cleaned_dataset_path": "projects/p07_saas_strategic_forecasting/data/cleaned/saas_account_monthly_cleaned.csv",
+      "cleaning_log_path": "projects/p07_saas_strategic_forecasting/outputs/cleaning/cleaning_log.json",
+      "rows": 22382,
+      "columns": 54
+    }
+  }
+]

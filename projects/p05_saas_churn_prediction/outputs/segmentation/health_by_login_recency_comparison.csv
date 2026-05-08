@@ -1,0 +1,15 @@
+health_band,login_recency_band,account_count,churn_rate_percent,median_account_health_score,median_feature_adoption_rate,median_seat_utilization_percent,median_days_since_last_login,median_renewal_probability_score
+high_health,active_0_7d,197,17.26,76.27,61.44,65.24,3.0,0.83
+high_health,inactive_31_90d,52,19.23,73.52,61.92,61.6,39.0,0.77
+high_health,warming_8_30d,247,19.43,75.09,60.3,63.92,15.0,0.82
+low_health,active_0_7d,1012,43.48,30.05,30.22,35.5,3.0,0.57
+low_health,dormant_90d_plus,38,47.37,30.13,30.78,31.61,103.0,0.5
+low_health,inactive_31_90d,684,46.64,28.22,27.65,33.71,44.0,0.53
+low_health,warming_8_30d,1638,43.22,29.18,28.76,34.88,15.0,0.57
+medium_health,active_0_7d,1454,28.4,52.21,44.53,49.43,3.0,0.72
+medium_health,dormant_90d_plus,21,57.14,49.03,38.67,49.92,97.0,0.62
+medium_health,inactive_31_90d,647,31.22,49.8,41.94,46.95,41.0,0.67
+medium_health,warming_8_30d,1890,28.68,52.17,44.25,48.4,15.0,0.71
+,active_0_7d,38,28.95,,39.47,42.58,3.5,0.64
+,inactive_31_90d,23,60.87,,39.73,40.34,43.0,0.57
+,warming_8_30d,59,38.98,,37.54,40.52,16.0,0.63

@@ -1,0 +1,4 @@
+risk_band,customer_count,delinquency_rate_percent,autopay_rate_percent,median_active_loan_amount,mean_active_loan_amount,median_loan_to_income_ratio,mean_loan_to_income_ratio,median_savings_balance,mean_savings_balance,median_installment_size,mean_installment_size,median_repayment_rate_percent,mean_repayment_rate_percent,median_avg_days_late,mean_avg_days_late,median_missed_payments,mean_missed_payments,median_app_sessions_per_week,mean_app_sessions_per_week,median_days_since_last_login,mean_days_since_last_login,median_number_of_products,mean_number_of_products
+high_risk,25,40.0,48.0,8169.93,8249.14,5.49,5.6,528.14,926.43,647.54,1025.14,80.92,79.72,6.2,8.24,2.0,2.56,6.0,7.24,6.0,7.44,1.0,1.64
+low_risk,6897,13.67,66.17,1214.73,1560.72,0.73,0.82,911.47,1344.78,120.7,188.46,94.29,93.2,2.3,3.46,1.0,0.89,4.0,4.03,6.0,8.96,1.0,1.63
+medium_risk,1078,21.71,59.46,3092.66,3746.81,2.12,2.19,617.05,929.69,299.3,478.93,90.36,88.36,4.4,5.45,1.0,1.48,5.0,5.04,5.0,7.81,1.0,1.62

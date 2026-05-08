@@ -1,0 +1,5 @@
+revenue_band,account_count,churn_rate_percent,median_account_health_score,mean_account_health_score,median_renewal_probability,mean_renewal_probability,median_monthly_recurring_revenue,mean_monthly_recurring_revenue,median_expansion_revenue,mean_expansion_revenue,median_feature_adoption_rate,mean_feature_adoption_rate,median_onboarding_completion_percent,mean_onboarding_completion_percent,median_seats_used_percent,mean_seats_used_percent,median_days_since_last_login,mean_days_since_last_login,median_support_tickets_last_90d,mean_support_tickets_last_90d,median_nps_score,mean_nps_score
+enterprise_mrr,710,25.63,0.58,0.57,74.66,74.16,3285.1,4085.22,568.78,825.6,40.56,40.74,58.44,58.53,70.11,68.0,9.5,14.87,2.0,1.71,38.0,37.53
+high_mrr,844,26.18,0.55,0.55,73.32,72.9,816.67,889.93,147.77,170.6,36.54,36.84,56.42,56.7,69.37,67.68,10.0,15.62,2.0,1.75,35.0,34.88
+low_mrr,2206,31.19,0.48,0.47,69.58,69.45,51.29,55.34,7.07,9.59,27.64,27.83,49.41,49.56,68.11,66.56,12.0,16.71,2.0,1.81,28.0,28.35
+mid_mrr,2240,29.87,0.51,0.51,71.13,71.21,208.12,239.06,33.58,45.96,31.83,32.17,53.8,53.44,68.62,66.67,11.0,15.45,2.0,1.76,32.0,31.66

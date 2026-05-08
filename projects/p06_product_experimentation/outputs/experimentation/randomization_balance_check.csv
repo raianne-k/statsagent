@@ -1,0 +1,22 @@
+acquisition_channel,control_percent,treatment_percent,absolute_difference_percentage_points,balance_variable,region,company_size,industry
+direct,11.71,12.26,0.55,acquisition_channel,,,
+organic,27.33,26.95,0.38,acquisition_channel,,,
+paid_search,20.27,20.17,0.09,acquisition_channel,,,
+paid_social,14.21,13.75,0.45,acquisition_channel,,,
+partner,9.94,9.78,0.16,acquisition_channel,,,
+referral,15.72,16.36,0.64,acquisition_channel,,,
+,14.77,15.32,0.55,region,APAC,,
+,28.19,27.79,0.41,region,Europe,,
+,38.44,38.66,0.22,region,North America,,
+,6.18,6.1,0.08,region,Other,,
+,12.42,12.12,0.29,region,UK,,
+,6.96,6.92,0.05,company_size,,enterprise,
+,21.41,21.78,0.37,company_size,,mid_market,
+,45.44,44.98,0.46,company_size,,small,
+,25.6,25.78,0.18,company_size,,solo,
+,10.34,9.5,0.84,industry,,,education
+,16.78,16.78,0.01,industry,,,finance
+,14.07,13.08,0.99,industry,,,healthcare
+,17.89,17.13,0.76,industry,,,other
+,13.64,15.42,1.78,industry,,,retail
+,27.27,28.09,0.82,industry,,,software

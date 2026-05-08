@@ -1,0 +1,2 @@
+model,test_rows,churn_rate_test_percent,accuracy,precision,recall,f1_score,roc_auc,threshold_used
+logistic_regression_balanced,2000,34.95,0.579,0.426,0.587,0.493,0.616,0.5

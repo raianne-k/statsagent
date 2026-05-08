@@ -1,0 +1,12 @@
+{
+  "generated_at": "2026-05-07T10:38:21",
+  "project": "01_marketplace_descriptive",
+  "run_name": "stage01b_cleaned_pipeline",
+  "task": "descriptive_stats",
+  "dataset_analyzed": "projects/01_marketplace_descriptive/data/cleaned/marketplace_cleaned.csv",
+  "cleaning_rules": "configs/cleaning_rules.yaml",
+  "report_path": "projects/01_marketplace_descriptive/outputs/reports/stage01b_cleaned_pipeline.md",
+  "validation_status": "pass",
+  "validation_warnings": [],
+  "governance_note": "AI-assisted analysis output; human review required before business-critical use."
+}

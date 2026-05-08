@@ -1,0 +1,4 @@
+group,group_value,outcome,n,successes,rate_percent,ci_low_percent,ci_high_percent,ci_width_percent
+risk_tier,high_risk,current_delinquency_flag,255,62,24.31,19.05,29.58,10.53
+risk_tier,medium_risk,current_delinquency_flag,2509,500,19.93,18.37,21.49,3.13
+risk_tier,low_risk,current_delinquency_flag,4236,561,13.24,12.22,14.26,2.04

@@ -1,0 +1,96 @@
+project:
+  name: p02_fintech_customer_segmentation
+  domain: fintech
+  stage: customer_segmentation_baseline
+
+data:
+  raw_path: projects/p02_fintech_customer_segmentation/data/raw/fintech_customer_sample.csv
+  cleaned_path: projects/p02_fintech_customer_segmentation/data/cleaned/fintech_customer_cleaned.csv
+
+outputs:
+  cleaning_log: projects/p02_fintech_customer_segmentation/outputs/cleaning/cleaning_log.json
+  validation_log: projects/p02_fintech_customer_segmentation/outputs/validation/validation_log.json
+  metadata_path: projects/p02_fintech_customer_segmentation/outputs/metadata/run_metadata.json
+  report_path: projects/p02_fintech_customer_segmentation/outputs/reports/final_report.md
+
+variables:
+  id_columns:
+    - customer_id
+    - account_id
+
+  binary_columns:
+    - defaulted
+    - missed_payment_last_12m
+    - active_credit_card
+    - mobile_app_user
+
+  categorical_columns:
+    - region
+    - employment_status
+    - income_band
+    - customer_segment
+
+  continuous_columns:
+    - age
+    - monthly_income
+    - monthly_expenses
+    - savings_balance
+    - debt_balance
+    - credit_score
+    - tenure_months
+    - transactions_per_month
+
+invalid_numeric_values:
+  age:
+    min: 18
+    max: 100
+
+  monthly_income:
+    min: 0
+
+  monthly_expenses:
+    min: 0
+
+  savings_balance:
+    min: 0
+
+  debt_balance:
+    min: 0
+
+  credit_score:
+    min: 300
+    max: 850
+
+  tenure_months:
+    min: 0
+
+  transactions_per_month:
+    min: 0
+
+missing_value_policy:
+  credit_score:
+    action: flag_and_keep
+    reason: "Missing credit scores may represent thin-file or recently onboarded customers."
+
+  savings_balance:
+    action: flag_and_keep
+    reason: "Missing balances may reflect incomplete financial linkage."
+
+cleaning_policy:
+  exclude_id_columns_from_analysis: true
+  keep_id_columns_in_cleaned_dataset: true
+
+governance:
+  synthetic_data: true
+  human_review_required: true
+  ai_assisted_analysis: true
+  allow_row_level_llm_exposure: false
+
+notes:
+  segmentation_goal: >
+    Identify meaningful customer groups based on financial behavior,
+    product usage, debt exposure, engagement, and income structure.
+
+  governance_note: >
+    This dataset is synthetic and designed for portfolio and analytical learning purposes.
+    Outputs require human review before operational or business-critical use.

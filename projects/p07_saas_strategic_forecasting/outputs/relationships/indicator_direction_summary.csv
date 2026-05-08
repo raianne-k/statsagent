@@ -1,0 +1,8 @@
+indicator,retained_median,churned_median,difference_churned_minus_retained,expected_risk_direction,interpretation_warning
+product_health_score,0.623,0.558,-0.065,lower values indicate higher risk,Directional diagnostic only; not causal proof.
+rolling_health_3m,0.617,0.56,-0.057,lower values indicate higher risk,Directional diagnostic only; not causal proof.
+feature_adoption_rate,68.33,61.335,-6.995,lower values indicate higher risk,Directional diagnostic only; not causal proof.
+usage_frequency,17.46,15.98,-1.48,lower values indicate higher risk,Directional diagnostic only; not causal proof.
+days_since_last_login,9.0,12.0,3.0,higher values indicate higher risk,Directional diagnostic only; not causal proof.
+support_tickets,1.0,1.0,0.0,higher values may indicate higher risk,Directional diagnostic only; not causal proof.
+revenue_at_risk,0.0,1.86,1.86,higher values indicate higher risk,Directional diagnostic only; not causal proof.

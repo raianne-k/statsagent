@@ -1,0 +1,7 @@
+segment_column,segment_value,total_users,control_users,treatment_users,onboarding_completion_flag_control_rate_percent,onboarding_completion_flag_treatment_rate_percent,onboarding_completion_flag_lift_percentage_points,activation_flag_control_rate_percent,activation_flag_treatment_rate_percent,activation_flag_lift_percentage_points,retained_30d_control_rate_percent,retained_30d_treatment_rate_percent,retained_30d_lift_percentage_points,retained_60d_control_rate_percent,retained_60d_treatment_rate_percent,retained_60d_lift_percentage_points,churn_30d_control_rate_percent,churn_30d_treatment_rate_percent,churn_30d_lift_percentage_points,upgrade_flag_control_rate_percent,upgrade_flag_treatment_rate_percent,upgrade_flag_lift_percentage_points
+industry,software,2768,1355,1413,49.15,54.99,5.84,51.22,57.47,6.25,50.11,53.72,3.6,48.41,50.18,1.76,49.89,46.28,-3.6,16.53,16.42,-0.11
+industry,other,1751,889,862,45.67,50.81,5.14,48.26,53.48,5.22,51.18,54.29,3.11,43.87,45.01,1.14,48.82,45.71,-3.11,16.99,17.63,0.65
+industry,finance,1678,834,844,50.0,51.78,1.78,48.56,53.55,4.99,49.64,56.16,6.52,43.29,48.1,4.82,50.36,43.84,-6.52,13.91,21.8,7.89
+industry,retail,1454,678,776,50.74,56.44,5.71,51.18,53.35,2.17,50.29,53.09,2.8,45.72,46.39,0.67,49.71,46.91,-2.8,16.96,16.11,-0.85
+industry,healthcare,1357,699,658,47.07,54.86,7.8,45.92,55.78,9.85,48.93,55.02,6.09,43.49,47.87,4.38,51.07,44.98,-6.09,17.02,19.6,2.58
+industry,education,992,514,478,46.5,54.6,8.1,47.47,51.05,3.58,50.19,51.26,1.06,44.94,44.14,-0.8,49.81,48.74,-1.06,18.48,16.32,-2.16

@@ -1,0 +1,8 @@
+segment_column,segment_value,total_users,control_users,treatment_users,onboarding_completion_flag_control_rate_percent,onboarding_completion_flag_treatment_rate_percent,onboarding_completion_flag_lift_percentage_points,activation_flag_control_rate_percent,activation_flag_treatment_rate_percent,activation_flag_lift_percentage_points,retained_30d_control_rate_percent,retained_30d_treatment_rate_percent,retained_30d_lift_percentage_points,retained_60d_control_rate_percent,retained_60d_treatment_rate_percent,retained_60d_lift_percentage_points,churn_30d_control_rate_percent,churn_30d_treatment_rate_percent,churn_30d_lift_percentage_points,upgrade_flag_control_rate_percent,upgrade_flag_treatment_rate_percent,upgrade_flag_lift_percentage_points
+acquisition_channel,organic,2714,1358,1356,50.37,56.86,6.49,50.74,55.75,5.02,51.91,57.15,5.24,44.92,50.81,5.89,48.09,42.85,-5.24,15.68,18.95,3.27
+acquisition_channel,paid_search,2022,1007,1015,46.57,49.36,2.79,45.48,51.63,6.14,47.57,51.72,4.16,43.69,42.66,-1.03,52.43,48.28,-4.16,15.19,17.54,2.34
+acquisition_channel,referral,1604,781,823,53.65,55.89,2.24,52.11,61.24,9.13,50.83,57.72,6.88,49.3,52.73,3.44,49.17,42.28,-6.88,18.82,18.23,-0.6
+acquisition_channel,paid_social,1398,706,692,42.07,51.01,8.94,47.45,50.87,3.42,46.88,48.7,1.82,41.78,40.61,-1.18,53.12,51.3,-1.82,15.58,15.32,-0.26
+acquisition_channel,direct,1199,582,617,47.25,54.94,7.69,48.11,55.59,7.48,50.0,53.0,3.0,46.56,47.97,1.41,50.0,47.0,-3.0,19.42,17.99,-1.43
+acquisition_channel,partner,986,494,492,48.99,54.67,5.69,50.61,51.02,0.41,53.64,53.46,-0.19,47.77,47.15,-0.62,46.36,46.54,0.19,15.79,18.7,2.91
+acquisition_channel,,77,41,36,36.59,52.78,16.19,51.22,55.56,4.34,51.22,50.0,-1.22,36.59,66.67,30.08,48.78,50.0,1.22,14.63,16.67,2.03

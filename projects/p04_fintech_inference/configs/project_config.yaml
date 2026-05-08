@@ -1,0 +1,109 @@
+project:
+  name: p04_fintech_inference
+  domain: fintech
+  stage: repayment_inference_baseline
+
+data:
+  raw_path: projects/p04_fintech_inference/data/raw/fintech_repayment_inference_sample.csv
+  cleaned_path: projects/p04_fintech_inference/data/cleaned/fintech_repayment_inference_cleaned.csv
+
+outputs:
+  cleaning_log: projects/p04_fintech_inference/outputs/cleaning/cleaning_log.json
+  validation_log: projects/p04_fintech_inference/outputs/validation/validation_log.json
+  metadata_path: projects/p04_fintech_inference/outputs/metadata/run_metadata.json
+  report_path: projects/p04_fintech_inference/outputs/reports/final_report.md
+
+variables:
+  id_columns:
+    - customer_id
+
+  binary_columns:
+    - autopay_enabled
+    - missed_payment_last_30d
+    - prior_delinquency_flag
+    - current_delinquency_flag
+    - hardship_program_enrolled
+    - payment_recovery_flag
+    - support_contact_last_30d
+
+  categorical_columns:
+    - region
+    - income_band
+    - employment_type
+    - risk_tier
+    - intervention_group
+    - repayment_plan_type
+
+  continuous_columns:
+    - monthly_income
+    - loan_balance
+    - monthly_payment
+    - loan_to_income_ratio
+    - credit_utilization_percent
+    - missed_payments_last_6m
+    - days_late_average
+    - risk_score
+    - repayment_probability_score
+
+invalid_numeric_values:
+  monthly_income:
+    min: 0
+
+  loan_balance:
+    min: 0
+
+  monthly_payment:
+    min: 0
+
+  loan_to_income_ratio:
+    min: 0
+
+  credit_utilization_percent:
+    min: 0
+    max: 100
+
+  missed_payments_last_6m:
+    min: 0
+
+  days_late_average:
+    min: 0
+
+  risk_score:
+    min: 0
+    max: 1
+
+  repayment_probability_score:
+    min: 0
+    max: 1
+
+missing_value_policy:
+  employment_type:
+    action: flag_and_keep
+    reason: "Missing employment type may reflect incomplete customer onboarding or unstable income documentation."
+
+  monthly_income:
+    action: flag_and_keep
+    reason: "Missing income may affect repayment-risk inference and should be reviewed before downstream use."
+
+cleaning_policy:
+  exclude_id_columns_from_analysis: true
+  keep_id_columns_in_cleaned_dataset: true
+  preserve_raw_data: true
+  conservative_cleaning: true
+
+governance:
+  synthetic_data: true
+  human_review_required: true
+  ai_assisted_analysis: true
+  allow_row_level_llm_exposure: false
+  llm_exposure_policy: summary_only
+
+notes:
+  inference_goal: >
+    Evaluate repayment-risk signals, conditional probabilities, confidence intervals,
+    and uncertainty around observed repayment differences.
+
+  governance_note: >
+    This dataset is synthetic and designed for portfolio and analytical learning purposes.
+    Outputs require human review before operational, financial, customer-impacting,
+    or business-critical use.

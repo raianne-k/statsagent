@@ -1,0 +1,273 @@
+project:
+  name: p07_saas_strategic_forecasting
+  domain: saas
+  stage: strategic_forecasting_cohort_scenario_modeling
+
+data:
+  raw_path: projects/p07_saas_strategic_forecasting/data/raw/saas_account_monthly_forecasting.csv
+  cleaned_path: projects/p07_saas_strategic_forecasting/data/cleaned/saas_account_monthly_cleaned.csv
+
+outputs:
+  cleaning_log: projects/p07_saas_strategic_forecasting/outputs/cleaning/cleaning_log.json
+  validation_log: projects/p07_saas_strategic_forecasting/outputs/validation/validation_log.json
+  metadata_path: projects/p07_saas_strategic_forecasting/outputs/metadata/run_metadata.json
+  report_path: projects/p07_saas_strategic_forecasting/outputs/reports/executive_report.md
+  dashboard_path: projects/p07_saas_strategic_forecasting/outputs/dashboards/strategic_forecasting_dashboard.html
+
+  cohorts:
+    retention_table: projects/p07_saas_strategic_forecasting/outputs/cohorts/cohort_retention_table.csv
+    cohort_summary: projects/p07_saas_strategic_forecasting/outputs/cohorts/cohort_summary.csv
+
+  trends:
+    operational_trends: projects/p07_saas_strategic_forecasting/outputs/trends/operational_trends.csv
+    leading_indicators: projects/p07_saas_strategic_forecasting/outputs/trends/leading_indicators.csv
+
+  forecasting:
+    retention_forecast: projects/p07_saas_strategic_forecasting/outputs/forecasting/retention_forecast.csv
+    churn_risk_forecast: projects/p07_saas_strategic_forecasting/outputs/forecasting/churn_risk_forecast.csv
+    mrr_forecast: projects/p07_saas_strategic_forecasting/outputs/forecasting/mrr_forecast.csv
+    revenue_at_risk_forecast: projects/p07_saas_strategic_forecasting/outputs/forecasting/revenue_at_risk_forecast.csv
+
+  scenarios:
+    scenario_summary: projects/p07_saas_strategic_forecasting/outputs/scenarios/scenario_summary.csv
+    scenario_revenue_impact: projects/p07_saas_strategic_forecasting/outputs/scenarios/scenario_revenue_impact.csv
+
+  plots:
+    retention_curve: projects/p07_saas_strategic_forecasting/outputs/plots/retention_curve.png
+    cohort_heatmap: projects/p07_saas_strategic_forecasting/outputs/plots/cohort_heatmap.png
+    rolling_health_trend: projects/p07_saas_strategic_forecasting/outputs/plots/rolling_health_trend.png
+    forecast_band: projects/p07_saas_strategic_forecasting/outputs/plots/forecast_band.png
+    scenario_revenue_trajectory: projects/p07_saas_strategic_forecasting/outputs/plots/scenario_revenue_trajectory.png
+
+variables:
+  id_columns:
+    - account_id
+
+  date_columns:
+    - snapshot_month
+    - signup_month
+    - cohort_month
+
+  binary_columns:
+    - downgrade_flag
+    - churn_flag
+
+  categorical_columns:
+    - plan_type
+    - company_size
+    - industry
+    - region
+    - acquisition_channel
+    - health_band
+    - usage_band
+    - login_recency_band
+    - mrr_band
+
+  continuous_columns:
+    - cohort_age_months
+    - active_users
+    - feature_adoption_rate
+    - usage_frequency
+    - support_tickets
+    - days_since_last_login
+    - onboarding_completion
+    - product_health_score
+    - rolling_health_3m
+    - rolling_usage_3m
+    - engagement_trend
+    - usage_trend
+    - monthly_recurring_revenue
+    - expansion_revenue
+    - revenue_trend
+    - renewal_probability
+    - revenue_at_risk
+
+forecasting:
+  time_column: snapshot_month
+  entity_column: account_id
+  cohort_column: cohort_month
+  cohort_age_column: cohort_age_months
+
+  target_metrics:
+    - churn_flag
+    - renewal_probability
+    - monthly_recurring_revenue
+    - revenue_at_risk
+    - product_health_score
+
+  leading_indicators:
+    - onboarding_completion
+    - feature_adoption_rate
+    - usage_frequency
+    - active_users
+    - days_since_last_login
+    - support_tickets
+    - product_health_score
+    - rolling_health_3m
+    - rolling_usage_3m
+    - engagement_trend
+    - usage_trend
+
+  forecast_horizon_months: 6
+  historical_window_months: 12
+  rolling_window_months: 3
+
+  preferred_methods:
+    - rolling_average_projection
+    - linear_trend_projection
+    - cohort_decay_projection
+    - scenario_adjusted_projection
+
+scenario_modeling:
+  baseline_scenario: current_trajectory
+
+  scenarios:
+    improved_onboarding:
+      description: Improved onboarding completion for low-onboarding accounts.
+      affected_metric: onboarding_completion
+      adjustment_type: additive_percentage_points
+      adjustment_value: 10
+      governance_note: Scenario assumes onboarding improvement is operationally feasible and sustained.
+
+    reduced_inactivity:
+      description: Reduced days since last login for inactive accounts.
+      affected_metric: days_since_last_login
+      adjustment_type: relative_reduction
+      adjustment_value: 0.15
+      governance_note: Scenario assumes engagement interventions reduce inactivity without adverse side effects.
+
+    higher_feature_adoption:
+      description: Higher product feature adoption across low-usage accounts.
+      affected_metric: feature_adoption_rate
+      adjustment_type: additive_percentage_points
+      adjustment_value: 8
+      governance_note: Scenario assumes product education or enablement improves adoption.
+
+    lower_support_burden:
+      description: Reduced support-ticket burden for high-friction accounts.
+      affected_metric: support_tickets
+      adjustment_type: relative_reduction
+      adjustment_value: 0.20
+      governance_note: Scenario assumes product or process improvements reduce support burden.
+
+    engagement_improvement:
+      description: Combined engagement improvement across usage, adoption, and health signals.
+      affected_metrics:
+        - feature_adoption_rate
+        - usage_frequency
+        - product_health_score
+      adjustment_type: mixed_operational_improvement
+      governance_note: Scenario combines multiple assumptions and should be interpreted cautiously.
+
+invalid_numeric_values:
+  cohort_age_months:
+    min: 0
+
+  active_users:
+    min: 0
+
+  feature_adoption_rate:
+    min: 0
+    max: 100
+
+  usage_frequency:
+    min: 0
+    max: 31
+
+  support_tickets:
+    min: 0
+
+  days_since_last_login:
+    min: 0
+    max: 180
+
+  onboarding_completion:
+    min: 0
+    max: 100
+
+  product_health_score:
+    min: 0
+    max: 1
+
+  rolling_health_3m:
+    min: 0
+    max: 1
+
+  rolling_usage_3m:
+    min: 0
+    max: 31
+
+  monthly_recurring_revenue:
+    min: 0
+
+  expansion_revenue:
+    min: 0
+
+  renewal_probability:
+    min: 0
+    max: 100
+
+  revenue_at_risk:
+    min: 0
+
+missing_value_policy:
+  feature_adoption_rate:
+    action: flag_and_keep
+    reason: "Missing adoption may reflect low usage, early lifecycle accounts, or incomplete product instrumentation."
+
+  usage_band:
+    action: flag_and_keep
+    reason: "Usage band depends on feature adoption and may be missing when adoption is not available."
+
+  support_tickets:
+    action: flag_and_keep
+    reason: "Missing support-ticket values may reflect operational logging gaps."
+
+  industry:
+    action: flag_and_keep
+    reason: "Missing industry may reflect incomplete account enrichment."
+
+cleaning_policy:
+  exclude_id_columns_from_analysis: true
+  keep_id_columns_in_cleaned_dataset: true
+  preserve_raw_data: true
+  conservative_cleaning: true
+  preserve_time_series_order: true
+  validate_longitudinal_continuity: true
+  prevent_forecasting_leakage: true
+
+validation_rules:
+  require_unique_account_month_rows: true
+  require_nonnegative_cohort_age: true
+  require_snapshot_month_after_signup_month: true
+  require_churn_absorbing_state_review: true
+  check_forecast_target_leakage: true
+  check_missingness_by_segment: true
+  check_extreme_revenue_outliers: true
+  check_unrealistic_trend_values: true
+
+governance:
+  synthetic_data: true
+  human_review_required: true
+  ai_assisted_analysis: true
+  allow_row_level_llm_exposure: false
+  llm_exposure_policy: summary_only
+  forecasts_are_probabilistic: true
+  scenarios_are_assumption_dependent: true
+  observational_not_causal: true
+  no_automated_strategic_decisions: true
+
+notes:
+  forecasting_goal: >
+    Estimate directional retention, churn-risk, engagement, and revenue trajectories
+    using interpretable forecasting and cohort-aware operational analysis.
+
+  scenario_goal: >
+    Evaluate how operational assumptions such as improved onboarding, reduced inactivity,
+    higher feature adoption, lower support burden, and engagement improvements may
+    influence future SaaS performance trajectories.
+
+  governance_note: >
+    This dataset is synthetic and designed for portfolio and analytical learning purposes.
+    Forecasting outputs are probabilistic, scenario assumptions are uncertain, and all
+    outputs require human review before operational or business-critical use.

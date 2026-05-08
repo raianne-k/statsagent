@@ -1,0 +1,13 @@
+usage_band,plan_tier,account_count,churn_rate_percent,median_account_health_score,median_feature_adoption_rate,median_seat_utilization_percent,median_days_since_last_login,median_renewal_probability_score
+high_usage,business,83,25.3,69.71,74.7,66.04,9.0,0.79
+high_usage,enterprise,53,20.75,69.76,74.81,72.2,9.0,0.79
+high_usage,growth,108,22.22,66.04,75.01,64.37,10.5,0.78
+high_usage,starter,86,27.91,66.8,74.47,60.38,8.5,0.79
+low_usage,business,524,37.98,34.89,25.42,37.64,13.0,0.6
+low_usage,enterprise,234,35.9,37.13,26.66,39.83,13.5,0.61
+low_usage,growth,1083,39.24,33.44,25.09,34.7,13.0,0.59
+low_usage,starter,1482,41.16,31.75,23.56,33.64,14.0,0.58
+medium_usage,business,973,30.83,51.14,49.49,50.89,11.0,0.68
+medium_usage,enterprise,510,33.14,53.31,47.42,50.31,12.0,0.7
+medium_usage,growth,1465,33.45,50.38,47.01,48.52,12.0,0.69
+medium_usage,starter,1399,31.24,48.6,46.66,46.97,12.0,0.69

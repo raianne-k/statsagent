@@ -1,0 +1,17 @@
+segment_type,engagement_segment,experiment_group,user_count,activation_rate_percent,retained_30d_rate_percent,retained_60d_rate_percent,churn_30d_rate_percent,upgrade_rate_percent
+engagement_band,high_engagement,control,1435,88.08,59.58,53.31,40.42,21.05
+engagement_band,high_engagement,treatment,1912,84.57,62.55,54.71,37.45,20.61
+engagement_band,low_engagement,control,868,7.03,41.71,34.45,58.29,11.64
+engagement_band,low_engagement,treatment,530,7.55,40.94,35.85,59.06,13.77
+engagement_band,moderate_engagement,control,2615,40.69,47.53,44.36,52.47,15.68
+engagement_band,moderate_engagement,treatment,2455,39.1,49.49,43.79,50.51,16.46
+engagement_band,power_engagement,control,51,100.0,56.86,54.9,43.14,13.73
+engagement_band,power_engagement,treatment,134,99.25,68.66,58.21,31.34,21.64
+feature_adoption_band,basic_adoption,control,2046,47.02,49.32,44.92,50.68,16.23
+feature_adoption_band,basic_adoption,treatment,1932,47.15,50.16,45.81,49.84,15.84
+feature_adoption_band,broad_adoption,control,234,88.03,60.68,55.98,39.32,20.09
+feature_adoption_band,broad_adoption,treatment,401,86.28,67.83,62.84,32.17,21.45
+feature_adoption_band,minimal_adoption,control,1227,25.43,43.44,40.34,56.56,15.16
+feature_adoption_band,minimal_adoption,treatment,853,31.07,47.95,41.38,52.05,14.3
+feature_adoption_band,moderate_adoption,control,1462,65.66,55.06,48.36,44.94,17.44
+feature_adoption_band,moderate_adoption,treatment,1845,66.56,57.99,48.73,42.01,20.92

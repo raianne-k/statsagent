@@ -1,0 +1,13 @@
+health_band,mrr_band,account_count,total_mrr,total_revenue_at_risk,avg_product_health_score,avg_renewal_probability,avg_feature_adoption_rate,avg_usage_frequency,avg_days_since_last_login,avg_support_tickets,churn_rate,share_total_accounts_pct,share_total_mrr_pct,share_total_risk_pct,risk_concentration_ratio,risk_minus_mrr_share_pct,revenue_at_risk_rate,priority_label
+high_health,enterprise_mrr,63,829339.79,7611.16,0.7443,99.1227,80.4003,20.844,8.619,1.0794,0.0317,6.5285,45.0129,29.2491,0.6498,-15.7638,0.0092,underrepresented_risk
+medium_health,enterprise_mrr,31,345567.79,6884.86,0.5434,97.9345,58.2435,16.0197,17.3226,0.9677,0.0323,3.2124,18.7559,26.4579,1.4106,7.7021,0.0199,proportional_or_slightly_elevated_risk
+medium_health,high_mrr,95,217221.74,5186.53,0.5415,97.5547,60.3556,15.3078,17.4,1.3763,0.0421,9.8446,11.7898,19.9314,1.6906,8.1416,0.0239,overrepresented_risk
+medium_health,mid_mrr,160,82371.32,1902.23,0.5439,97.6664,59.7485,15.5756,16.1312,1.3718,0.0562,16.5803,4.4707,7.3101,1.6351,2.8394,0.0231,overrepresented_risk
+high_health,high_mrr,108,240639.72,1448.65,0.7521,99.4009,82.5871,20.6837,9.787,1.4038,0.0463,11.1917,13.0609,5.567,0.4262,-7.4938,0.006,underrepresented_risk
+low_health,enterprise_mrr,1,5868.24,1166.02,0.193,80.13,30.12,2.77,5.0,2.0,0.0,0.1036,0.3185,4.4809,14.0687,4.1624,0.1987,overrepresented_risk
+medium_health,low_mrr,200,25236.49,576.53,0.5359,97.5875,58.8005,15.3314,17.545,1.2769,0.035,20.7254,1.3697,2.2156,1.6175,0.8458,0.0228,overrepresented_risk
+low_health,high_mrr,2,2962.8,324.32,0.298,88.37,22.78,10.925,8.0,2.5,0.0,0.2073,0.1608,1.2463,7.7505,1.0855,0.1095,overrepresented_risk
+low_health,low_mrr,21,2475.35,300.93,0.2601,87.6052,24.632,9.2129,31.5238,1.619,0.0952,2.1762,0.1344,1.1564,8.6077,1.0221,0.1216,overrepresented_risk
+high_health,mid_mrr,127,69255.25,293.32,0.7501,99.5272,83.6458,20.8877,9.1496,1.2381,0.0315,13.1606,3.7589,1.1272,0.2999,-2.6317,0.0042,underrepresented_risk
+low_health,mid_mrr,6,2788.13,212.62,0.2855,91.07,26.0033,8.8383,36.6667,1.3333,0.3333,0.6218,0.1513,0.8171,5.3994,0.6658,0.0763,overrepresented_risk
+high_health,low_mrr,151,18723.74,114.73,0.735,99.4144,81.7437,20.533,10.1987,1.3221,0.0265,15.6477,1.0162,0.4409,0.4339,-0.5753,0.0061,underrepresented_risk

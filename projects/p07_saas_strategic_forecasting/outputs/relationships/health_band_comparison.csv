@@ -1,0 +1,4 @@
+health_band,account_month_count,unique_accounts,avg_churn_rate,avg_renewal_probability,avg_monthly_recurring_revenue,avg_revenue_at_risk,median_feature_adoption_rate,median_usage_frequency,median_days_since_last_login,median_support_tickets,downgrade_rate
+high_health,9117,1111,0.023,99.476,2077.953,9.869,80.76,20.58,6.0,1.0,0.032
+low_health,480,184,0.129,89.914,1379.79,133.261,32.3,9.495,21.5,1.0,0.179
+medium_health,12785,1719,0.047,97.82,1442.712,31.082,59.99,15.41,11.0,1.0,0.035

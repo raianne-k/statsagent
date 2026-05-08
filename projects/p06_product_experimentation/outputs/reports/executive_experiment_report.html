@@ -1,0 +1,1146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Product Experimentation — Executive Report</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --brand: #81A0CE;
+      --brand-dark: #5f7fae;
+      --ink: #3F4247;
+      --ink-light: #6b7280;
+      --surface: #f7f8fa;
+      --surface-2: #eef1f6;
+      --border: #dde3ee;
+      --white: #ffffff;
+      --radius: 10px;
+      --shadow: 0 2px 12px rgba(129,160,206,.13);
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Sora', sans-serif;
+      background: var(--surface);
+      color: var(--ink);
+      line-height: 1.65;
+      font-size: 14px;
+    }
+
+    .report-header {
+      background: var(--ink);
+      color: var(--white);
+      padding: 52px 64px 44px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .report-header::before {
+      content: '';
+      position: absolute;
+      top: -60px;
+      right: -60px;
+      width: 340px;
+      height: 340px;
+      border-radius: 50%;
+      background: var(--brand);
+      opacity: .12;
+    }
+
+    .header-eyebrow {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: var(--brand);
+      margin-bottom: 14px;
+    }
+
+    .report-header h1 {
+      font-size: 32px;
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 10px;
+      position: relative;
+    }
+
+    .header-sub {
+      font-size: 13px;
+      color: rgba(255,255,255,.55);
+      font-weight: 300;
+      position: relative;
+    }
+
+    .header-meta {
+      margin-top: 28px;
+      display: flex;
+      gap: 32px;
+      font-size: 12px;
+      color: rgba(255,255,255,.45);
+      position: relative;
+    }
+
+    .header-meta strong {
+      color: rgba(255,255,255,.75);
+      font-weight: 500;
+    }
+
+    .report-body {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 48px 40px 80px;
+    }
+
+    section {
+      margin-bottom: 52px;
+    }
+
+    .section-label {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+
+    .section-label::before {
+      content: '';
+      display: block;
+      width: 4px;
+      height: 20px;
+      border-radius: 2px;
+      background: var(--brand);
+      flex-shrink: 0;
+    }
+
+    .section-label h2 {
+      font-size: 15px;
+      font-weight: 600;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+      color: var(--ink);
+    }
+
+    .summary-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--brand);
+      border-radius: var(--radius);
+      padding: 28px 32px;
+      box-shadow: var(--shadow);
+      color: var(--ink-light);
+      line-height: 1.75;
+    }
+
+    .summary-card p + p {
+      margin-top: 12px;
+    }
+
+    .metric-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+
+    .metric-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 22px 24px 20px;
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .metric-card::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: var(--brand);
+    }
+
+    .metric-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--ink-light);
+      margin-bottom: 10px;
+    }
+
+    .metric-value {
+      font-family: 'DM Mono', monospace;
+      font-size: 26px;
+      font-weight: 500;
+      color: var(--ink);
+    }
+
+    .metric-note {
+      margin-top: 6px;
+      font-size: 11px;
+      color: var(--ink-light);
+    }
+
+    .callout {
+      background: var(--surface-2);
+      border-radius: var(--radius);
+      padding: 14px 20px;
+      font-size: 13px;
+      color: var(--ink-light);
+      border: 1px solid var(--border);
+      margin-top: 14px;
+    }
+
+    .callout strong {
+      color: var(--ink);
+    }
+
+    .table-wrap {
+      overflow-x: auto;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+    }
+
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      background: var(--white);
+      font-size: 13px;
+    }
+
+    .data-table thead tr {
+      background: var(--ink);
+      color: var(--white);
+    }
+
+    .data-table thead th {
+      padding: 13px 16px;
+      text-align: left;
+      font-weight: 500;
+      font-size: 11px;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .data-table tbody tr {
+      border-bottom: 1px solid var(--border);
+    }
+
+    .data-table tbody tr:last-child {
+      border-bottom: none;
+    }
+
+    .data-table tbody tr:hover {
+      background: var(--surface-2);
+    }
+
+    .data-table tbody td {
+      padding: 11px 16px;
+      font-family: 'DM Mono', monospace;
+      font-size: 12.5px;
+      color: var(--ink);
+      white-space: nowrap;
+    }
+
+    .data-table tbody td:first-child {
+      font-family: 'Sora', sans-serif;
+      font-weight: 500;
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+
+    .two-col h3 {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--ink-light);
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      margin-bottom: 12px;
+    }
+
+    .governance {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px 32px;
+      box-shadow: var(--shadow);
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+    }
+
+    .governance-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: var(--surface-2);
+      border: 2px solid var(--brand);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .governance h3 {
+      font-size: 13px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      margin-bottom: 8px;
+    }
+
+    .governance p {
+      font-size: 13px;
+      color: var(--ink-light);
+      line-height: 1.7;
+    }
+
+    .report-footer {
+      border-top: 1px solid var(--border);
+      margin-top: 64px;
+      padding-top: 24px;
+      display: flex;
+      justify-content: space-between;
+      font-size: 11px;
+      color: var(--ink-light);
+    }
+
+    @media (max-width: 780px) {
+      .metric-grid,
+      .two-col {
+        grid-template-columns: 1fr;
+      }
+
+      .report-header {
+        padding: 36px 28px 30px;
+      }
+
+      .report-body {
+        padding: 32px 20px 60px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+<header class="report-header">
+  <div class="header-eyebrow">Analytical Report · p06_product_experimentation</div>
+  <h1>Product Experimentation<br>Executive Report</h1>
+  <p class="header-sub">Onboarding experiment evidence for product rollout decisions</p>
+
+  <div class="header-meta">
+    <span><strong>Project</strong> p06_product_experimentation</span>
+    <span><strong>Method</strong> A/B Experiment Analysis</span>
+    <span><strong>Status</strong> Exploratory / Portfolio</span>
+  </div>
+</header>
+
+<main class="report-body">
+
+  <section>
+    <div class="section-label"><h2>Executive Summary</h2></div>
+    <div class="summary-card">
+      <p>
+        This report summarizes an onboarding A/B experiment comparing a control experience against a treatment experience.
+        The analysis evaluates activation, retention, churn, monetization, and guardrail outcomes.
+      </p>
+      <p>
+        The goal is not simply to identify statistically significant differences, but to determine whether the observed
+        effects are practically meaningful, trustworthy, and appropriate for product rollout consideration.
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-label"><h2>Primary Experiment Outcomes</h2></div>
+
+    <div class="metric-grid">
+      <div class="metric-card">
+        <div class="metric-label">Activation Control</div>
+        <div class="metric-value">49.10</div>
+        <div class="metric-note">Control activation rate %</div>
+      </div>
+
+      <div class="metric-card">
+        <div class="metric-label">Activation Treatment</div>
+        <div class="metric-value">54.66</div>
+        <div class="metric-note">Treatment activation rate %</div>
+      </div>
+
+      <div class="metric-card">
+        <div class="metric-label">Activation Lift</div>
+        <div class="metric-value">5.56</div>
+        <div class="metric-note">Percentage-point difference</div>
+      </div>
+
+      <div class="metric-card">
+        <div class="metric-label">Activation P-value</div>
+        <div class="metric-value">0.0000</div>
+        <div class="metric-note">Two-sided proportion test</div>
+      </div>
+    </div>
+
+    <div class="metric-grid">
+      <div class="metric-card">
+        <div class="metric-label">Retention Control</div>
+        <div class="metric-value">50.09</div>
+        <div class="metric-note">30-day retention rate %</div>
+      </div>
+
+      <div class="metric-card">
+        <div class="metric-label">Retention Treatment</div>
+        <div class="metric-value">54.06</div>
+        <div class="metric-note">30-day retention rate %</div>
+      </div>
+
+      <div class="metric-card">
+        <div class="metric-label">Retention Lift</div>
+        <div class="metric-value">3.97</div>
+        <div class="metric-note">Percentage-point difference</div>
+      </div>
+
+      <div class="metric-card">
+        <div class="metric-label">Retention P-value</div>
+        <div class="metric-value">0.0001</div>
+        <div class="metric-note">Two-sided proportion test</div>
+      </div>
+    </div>
+
+    <div class="callout">
+      <strong>Interpretation rule:</strong> statistical significance should not be treated as automatic rollout approval.
+      Product teams still need to evaluate practical significance, implementation cost, guardrail movement, and long-term risk.
+    </div>
+  </section>
+
+  <section>
+    <div class="section-label"><h2>Experiment Integrity</h2></div>
+    <div class="table-wrap">
+      <table class="dataframe data-table">
+  <thead>
+    <tr style="text-align: right;">
+      <th>check</th>
+      <th>status</th>
+      <th>value</th>
+      <th>note</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>control_group_count</td>
+      <td>info</td>
+      <td>4969.00</td>
+      <td>Number of users assigned to control.</td>
+    </tr>
+    <tr>
+      <td>treatment_group_count</td>
+      <td>info</td>
+      <td>5031.00</td>
+      <td>Number of users assigned to treatment.</td>
+    </tr>
+    <tr>
+      <td>group_imbalance_percent</td>
+      <td>pass</td>
+      <td>0.62</td>
+      <td>Absolute imbalance between control and treatment as percent of assigned population.</td>
+    </tr>
+    <tr>
+      <td>duplicate_user_ids</td>
+      <td>pass</td>
+      <td>0.00</td>
+      <td>Duplicate user IDs should be zero for user-level experiment analysis.</td>
+    </tr>
+    <tr>
+      <td>null_experiment_groups</td>
+      <td>pass</td>
+      <td>0.00</td>
+      <td>Users should have non-null experiment assignment.</td>
+    </tr>
+    <tr>
+      <td>assignment_valid_rate_percent</td>
+      <td>pass</td>
+      <td>96.36</td>
+      <td>Share of users with valid experiment assignment.</td>
+    </tr>
+    <tr>
+      <td>experiment_eligibility_rate_percent</td>
+      <td>pass</td>
+      <td>96.86</td>
+      <td>Share of users eligible for the experiment.</td>
+    </tr>
+    <tr>
+      <td>low_exposure_rate_percent</td>
+      <td>pass</td>
+      <td>3.64</td>
+      <td>Share of users with less than full exposure window.</td>
+    </tr>
+    <tr>
+      <td>exposure_gap_days</td>
+      <td>pass</td>
+      <td>0.09</td>
+      <td>Absolute difference in average exposure days between treatment and control.</td>
+    </tr>
+  </tbody>
+</table>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-label"><h2>Binary Outcome Results</h2></div>
+    <div class="table-wrap">
+      <table class="dataframe data-table">
+  <thead>
+    <tr style="text-align: right;">
+      <th>metric</th>
+      <th>control_n</th>
+      <th>treatment_n</th>
+      <th>control_rate_percent</th>
+      <th>treatment_rate_percent</th>
+      <th>absolute_lift_percentage_points</th>
+      <th>relative_lift_percent</th>
+      <th>control_ci_low_percent</th>
+      <th>control_ci_high_percent</th>
+      <th>treatment_ci_low_percent</th>
+      <th>treatment_ci_high_percent</th>
+      <th>p_value</th>
+      <th>statistically_significant_05</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>onboarding_completion_flag</td>
+      <td>4969</td>
+      <td>5031</td>
+      <td>48.32</td>
+      <td>53.91</td>
+      <td>5.59</td>
+      <td>11.56</td>
+      <td>46.93</td>
+      <td>49.71</td>
+      <td>52.53</td>
+      <td>55.28</td>
+      <td>0.0000</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <td>activation_flag</td>
+      <td>4969</td>
+      <td>5031</td>
+      <td>49.10</td>
+      <td>54.66</td>
+      <td>5.56</td>
+      <td>11.32</td>
+      <td>47.71</td>
+      <td>50.49</td>
+      <td>53.29</td>
+      <td>56.04</td>
+      <td>0.0000</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <td>retained_30d</td>
+      <td>4969</td>
+      <td>5031</td>
+      <td>50.09</td>
+      <td>54.06</td>
+      <td>3.97</td>
+      <td>7.93</td>
+      <td>48.70</td>
+      <td>51.48</td>
+      <td>52.69</td>
+      <td>55.44</td>
+      <td>0.0001</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <td>retained_60d</td>
+      <td>4969</td>
+      <td>5031</td>
+      <td>45.32</td>
+      <td>47.49</td>
+      <td>2.16</td>
+      <td>4.78</td>
+      <td>43.94</td>
+      <td>46.71</td>
+      <td>46.11</td>
+      <td>48.87</td>
+      <td>0.0300</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <td>churn_30d</td>
+      <td>4969</td>
+      <td>5031</td>
+      <td>49.91</td>
+      <td>45.94</td>
+      <td>-3.97</td>
+      <td>-7.96</td>
+      <td>48.52</td>
+      <td>51.30</td>
+      <td>44.56</td>
+      <td>47.31</td>
+      <td>0.0001</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <td>upgrade_flag</td>
+      <td>4969</td>
+      <td>5031</td>
+      <td>16.50</td>
+      <td>17.89</td>
+      <td>1.39</td>
+      <td>8.40</td>
+      <td>15.47</td>
+      <td>17.53</td>
+      <td>16.83</td>
+      <td>18.95</td>
+      <td>0.0662</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <td>expansion_revenue_flag</td>
+      <td>4969</td>
+      <td>5031</td>
+      <td>13.83</td>
+      <td>15.07</td>
+      <td>1.24</td>
+      <td>8.98</td>
+      <td>12.87</td>
+      <td>14.79</td>
+      <td>14.08</td>
+      <td>16.06</td>
+      <td>0.0776</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <td>negative_feedback_flag</td>
+      <td>4969</td>
+      <td>5031</td>
+      <td>7.27</td>
+      <td>8.55</td>
+      <td>1.28</td>
+      <td>17.65</td>
+      <td>6.54</td>
+      <td>7.99</td>
+      <td>7.77</td>
+      <td>9.32</td>
+      <td>0.0176</td>
+      <td>True</td>
+    </tr>
+  </tbody>
+</table>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-label"><h2>Continuous Outcome Results</h2></div>
+    <div class="table-wrap">
+      <table class="dataframe data-table">
+  <thead>
+    <tr style="text-align: right;">
+      <th>metric</th>
+      <th>control_n</th>
+      <th>treatment_n</th>
+      <th>control_mean</th>
+      <th>treatment_mean</th>
+      <th>mean_difference</th>
+      <th>relative_difference_percent</th>
+      <th>control_median</th>
+      <th>treatment_median</th>
+      <th>p_value</th>
+      <th>statistically_significant_05</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>sessions_first_14d</td>
+      <td>4969</td>
+      <td>5031</td>
+      <td>6.838</td>
+      <td>7.875</td>
+      <td>1.037</td>
+      <td>15.16</td>
+      <td>6.00</td>
+      <td>8.00</td>
+      <td>0.000</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <td>feature_adoption_count</td>
+      <td>4969</td>
+      <td>5031</td>
+      <td>2.934</td>
+      <td>3.460</td>
+      <td>0.527</td>
+      <td>17.95</td>
+      <td>3.00</td>
+      <td>3.00</td>
+      <td>0.000</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <td>support_tickets_first_30d</td>
+      <td>4969</td>
+      <td>5031</td>
+      <td>0.668</td>
+      <td>0.856</td>
+      <td>0.188</td>
+      <td>28.14</td>
+      <td>0.00</td>
+      <td>1.00</td>
+      <td>0.000</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <td>time_to_activation_days</td>
+      <td>2440</td>
+      <td>2750</td>
+      <td>6.050</td>
+      <td>5.376</td>
+      <td>-0.674</td>
+      <td>-11.14</td>
+      <td>5.10</td>
+      <td>4.60</td>
+      <td>0.000</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <td>monthly_subscription_value</td>
+      <td>4969</td>
+      <td>5031</td>
+      <td>170.261</td>
+      <td>170.305</td>
+      <td>0.045</td>
+      <td>0.03</td>
+      <td>82.43</td>
+      <td>79.61</td>
+      <td>0.993</td>
+      <td>False</td>
+    </tr>
+  </tbody>
+</table>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-label"><h2>Supporting Context</h2></div>
+    <div class="two-col">
+      <div>
+        <h3>Largest Balance Differences</h3>
+        <div class="table-wrap">
+          <table class="dataframe data-table">
+  <thead>
+    <tr style="text-align: right;">
+      <th>acquisition_channel</th>
+      <th>control_percent</th>
+      <th>treatment_percent</th>
+      <th>absolute_difference_percentage_points</th>
+      <th>balance_variable</th>
+      <th>region</th>
+      <th>company_size</th>
+      <th>industry</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>NaN</td>
+      <td>13.64</td>
+      <td>15.42</td>
+      <td>1.78</td>
+      <td>industry</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>retail</td>
+    </tr>
+    <tr>
+      <td>NaN</td>
+      <td>14.07</td>
+      <td>13.08</td>
+      <td>0.99</td>
+      <td>industry</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>healthcare</td>
+    </tr>
+    <tr>
+      <td>NaN</td>
+      <td>10.34</td>
+      <td>9.50</td>
+      <td>0.84</td>
+      <td>industry</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>education</td>
+    </tr>
+    <tr>
+      <td>NaN</td>
+      <td>27.27</td>
+      <td>28.09</td>
+      <td>0.82</td>
+      <td>industry</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>software</td>
+    </tr>
+    <tr>
+      <td>NaN</td>
+      <td>17.89</td>
+      <td>17.13</td>
+      <td>0.76</td>
+      <td>industry</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>other</td>
+    </tr>
+    <tr>
+      <td>referral</td>
+      <td>15.72</td>
+      <td>16.36</td>
+      <td>0.64</td>
+      <td>acquisition_channel</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>direct</td>
+      <td>11.71</td>
+      <td>12.26</td>
+      <td>0.55</td>
+      <td>acquisition_channel</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>NaN</td>
+      <td>14.77</td>
+      <td>15.32</td>
+      <td>0.55</td>
+      <td>region</td>
+      <td>APAC</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+        </div>
+      </div>
+
+      <div>
+        <h3>Strongest Metric Relationships</h3>
+        <div class="table-wrap">
+          <table class="dataframe data-table">
+  <thead>
+    <tr style="text-align: right;">
+      <th>continuous_variable</th>
+      <th>outcome_variable</th>
+      <th>correlation</th>
+      <th>absolute_correlation</th>
+      <th>n</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>sessions_first_14d</td>
+      <td>activation_flag</td>
+      <td>0.5930</td>
+      <td>0.5930</td>
+      <td>10000</td>
+    </tr>
+    <tr>
+      <td>feature_adoption_count</td>
+      <td>activation_flag</td>
+      <td>0.3442</td>
+      <td>0.3442</td>
+      <td>10000</td>
+    </tr>
+    <tr>
+      <td>sessions_first_14d</td>
+      <td>churn_30d</td>
+      <td>-0.1497</td>
+      <td>0.1497</td>
+      <td>10000</td>
+    </tr>
+    <tr>
+      <td>sessions_first_14d</td>
+      <td>retained_30d</td>
+      <td>0.1497</td>
+      <td>0.1497</td>
+      <td>10000</td>
+    </tr>
+    <tr>
+      <td>sessions_first_14d</td>
+      <td>retained_60d</td>
+      <td>0.1389</td>
+      <td>0.1389</td>
+      <td>10000</td>
+    </tr>
+    <tr>
+      <td>support_tickets_first_30d</td>
+      <td>activation_flag</td>
+      <td>0.1193</td>
+      <td>0.1193</td>
+      <td>10000</td>
+    </tr>
+    <tr>
+      <td>feature_adoption_count</td>
+      <td>retained_30d</td>
+      <td>0.1113</td>
+      <td>0.1113</td>
+      <td>10000</td>
+    </tr>
+    <tr>
+      <td>feature_adoption_count</td>
+      <td>churn_30d</td>
+      <td>-0.1113</td>
+      <td>0.1113</td>
+      <td>10000</td>
+    </tr>
+  </tbody>
+</table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-label"><h2>Segment Context</h2></div>
+    <div class="table-wrap">
+      <table class="dataframe data-table">
+  <thead>
+    <tr style="text-align: right;">
+      <th>segment_column</th>
+      <th>segment_value</th>
+      <th>user_count</th>
+      <th>treatment_share_percent</th>
+      <th>activation_rate_percent</th>
+      <th>retained_30d_rate_percent</th>
+      <th>retained_60d_rate_percent</th>
+      <th>churn_30d_rate_percent</th>
+      <th>upgrade_rate_percent</th>
+      <th>median_sessions_first_14d</th>
+      <th>median_feature_adoption_count</th>
+      <th>median_subscription_value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>company_size</td>
+      <td>enterprise</td>
+      <td>694</td>
+      <td>50.14</td>
+      <td>58.93</td>
+      <td>57.20</td>
+      <td>47.69</td>
+      <td>42.80</td>
+      <td>18.88</td>
+      <td>8.0</td>
+      <td>3.0</td>
+      <td>920.15</td>
+    </tr>
+    <tr>
+      <td>company_size</td>
+      <td>mid_market</td>
+      <td>2160</td>
+      <td>50.74</td>
+      <td>55.69</td>
+      <td>54.68</td>
+      <td>50.23</td>
+      <td>45.32</td>
+      <td>19.72</td>
+      <td>8.0</td>
+      <td>3.0</td>
+      <td>247.94</td>
+    </tr>
+    <tr>
+      <td>company_size</td>
+      <td>small</td>
+      <td>4521</td>
+      <td>50.06</td>
+      <td>51.32</td>
+      <td>51.65</td>
+      <td>46.03</td>
+      <td>48.35</td>
+      <td>16.79</td>
+      <td>7.0</td>
+      <td>3.0</td>
+      <td>78.51</td>
+    </tr>
+    <tr>
+      <td>company_size</td>
+      <td>solo</td>
+      <td>2569</td>
+      <td>50.49</td>
+      <td>47.76</td>
+      <td>49.55</td>
+      <td>43.67</td>
+      <td>50.45</td>
+      <td>15.30</td>
+      <td>7.0</td>
+      <td>3.0</td>
+      <td>28.96</td>
+    </tr>
+    <tr>
+      <td>company_size</td>
+      <td>NaN</td>
+      <td>56</td>
+      <td>48.21</td>
+      <td>55.36</td>
+      <td>41.07</td>
+      <td>39.29</td>
+      <td>58.93</td>
+      <td>19.64</td>
+      <td>8.0</td>
+      <td>3.0</td>
+      <td>87.58</td>
+    </tr>
+    <tr>
+      <td>acquisition_channel</td>
+      <td>direct</td>
+      <td>1199</td>
+      <td>51.46</td>
+      <td>51.96</td>
+      <td>51.54</td>
+      <td>47.29</td>
+      <td>48.46</td>
+      <td>18.68</td>
+      <td>7.0</td>
+      <td>3.0</td>
+      <td>80.28</td>
+    </tr>
+    <tr>
+      <td>acquisition_channel</td>
+      <td>organic</td>
+      <td>2714</td>
+      <td>49.96</td>
+      <td>53.24</td>
+      <td>54.53</td>
+      <td>47.86</td>
+      <td>45.47</td>
+      <td>17.32</td>
+      <td>7.0</td>
+      <td>3.0</td>
+      <td>78.99</td>
+    </tr>
+    <tr>
+      <td>acquisition_channel</td>
+      <td>paid_search</td>
+      <td>2022</td>
+      <td>50.20</td>
+      <td>48.57</td>
+      <td>49.65</td>
+      <td>43.18</td>
+      <td>50.35</td>
+      <td>16.37</td>
+      <td>7.0</td>
+      <td>3.0</td>
+      <td>82.80</td>
+    </tr>
+    <tr>
+      <td>acquisition_channel</td>
+      <td>paid_social</td>
+      <td>1398</td>
+      <td>49.50</td>
+      <td>49.14</td>
+      <td>47.78</td>
+      <td>41.20</td>
+      <td>52.22</td>
+      <td>15.45</td>
+      <td>6.0</td>
+      <td>3.0</td>
+      <td>80.86</td>
+    </tr>
+    <tr>
+      <td>acquisition_channel</td>
+      <td>partner</td>
+      <td>986</td>
+      <td>49.90</td>
+      <td>50.81</td>
+      <td>53.55</td>
+      <td>47.46</td>
+      <td>46.45</td>
+      <td>17.24</td>
+      <td>7.0</td>
+      <td>3.0</td>
+      <td>81.72</td>
+    </tr>
+    <tr>
+      <td>acquisition_channel</td>
+      <td>referral</td>
+      <td>1604</td>
+      <td>51.31</td>
+      <td>56.80</td>
+      <td>54.36</td>
+      <td>51.06</td>
+      <td>45.64</td>
+      <td>18.52</td>
+      <td>7.0</td>
+      <td>3.0</td>
+      <td>83.06</td>
+    </tr>
+    <tr>
+      <td>acquisition_channel</td>
+      <td>NaN</td>
+      <td>77</td>
+      <td>46.75</td>
+      <td>53.25</td>
+      <td>50.65</td>
+      <td>50.65</td>
+      <td>49.35</td>
+      <td>15.58</td>
+      <td>7.0</td>
+      <td>3.0</td>
+      <td>68.99</td>
+    </tr>
+  </tbody>
+</table>
+    </div>
+    <div class="callout">
+      Segment outputs are used as treatment-effect context, not as a replacement for the randomized experiment.
+    </div>
+  </section>
+
+  <section>
+    <div class="section-label"><h2>Governance</h2></div>
+
+    <div class="governance">
+      <div class="governance-icon">⚠</div>
+      <div>
+        <h3>Human-in-the-loop rollout decision</h3>
+        <p>
+          This experiment analysis is a decision-support artifact. It should not trigger automatic rollout.
+          Results should be reviewed for assignment quality, exposure validity, statistical uncertainty,
+          practical significance, and guardrail movement before product decisions are made.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <footer class="report-footer">
+    <span>p06_product_experimentation · Executive Report</span>
+    <span>Analytical output — not an automated rollout decision</span>
+  </footer>
+
+</main>
+</body>
+</html>

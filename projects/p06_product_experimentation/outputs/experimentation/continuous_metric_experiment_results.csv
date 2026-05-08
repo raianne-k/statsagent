@@ -1,0 +1,6 @@
+metric,control_n,treatment_n,control_mean,treatment_mean,mean_difference,relative_difference_percent,control_median,treatment_median,p_value,statistically_significant_05
+sessions_first_14d,4969,5031,6.838,7.875,1.037,15.16,6.0,8.0,0.0,True
+feature_adoption_count,4969,5031,2.934,3.46,0.527,17.95,3.0,3.0,0.0,True
+support_tickets_first_30d,4969,5031,0.668,0.856,0.188,28.14,0.0,1.0,0.0,True
+time_to_activation_days,2440,2750,6.05,5.376,-0.674,-11.14,5.1,4.6,0.0,True
+monthly_subscription_value,4969,5031,170.261,170.305,0.045,0.03,82.43,79.61,0.993,False

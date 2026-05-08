@@ -1,0 +1,3 @@
+condition,condition_value,outcome,n,successes,rate_percent,ci_low_percent,ci_high_percent,ci_width_percent
+missed_payment_last_30d,0,current_delinquency_flag,5804,808,13.92,13.03,14.81,1.78
+missed_payment_last_30d,1,current_delinquency_flag,1196,315,26.34,23.84,28.83,4.99

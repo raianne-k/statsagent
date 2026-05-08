@@ -1,0 +1,11 @@
+health_band,usage_band,active_accounts,total_mrr,total_revenue_at_risk,avg_renewal_probability,avg_product_health_score,avg_feature_adoption_rate,avg_usage_frequency,avg_days_since_last_login,avg_support_tickets,snapshot_month,revenue_at_risk_rate
+medium_health,medium_usage,393,582330.06,12644.05,97.63,0.53,57.07,15.35,17.27,1.27,2024-12-01,2.17
+high_health,high_usage,402,977175.51,9080.54,99.37,0.75,83.98,20.88,9.3,1.3,2024-12-01,0.93
+low_health,low_usage,22,12200.81,1928.07,85.23,0.24,20.75,8.62,28.73,1.91,2024-12-01,15.8
+medium_health,high_usage,75,72866.11,1282.16,98.28,0.61,75.0,16.73,16.17,1.5,2024-12-01,1.76
+medium_health,low_usage,9,5993.05,408.51,91.91,0.39,30.06,10.13,14.44,1.22,2024-12-01,6.82
+high_health,medium_usage,41,179746.7,370.45,99.79,0.69,65.73,19.43,11.56,1.02,2024-12-01,0.21
+medium_health,,9,9208.12,215.43,98.09,0.51,,14.51,16.44,1.33,2024-12-01,2.34
+low_health,medium_usage,7,1849.35,75.82,95.43,0.32,38.26,10.23,34.0,1.0,2024-12-01,4.1
+high_health,,6,1036.29,16.87,98.78,0.7,,18.61,15.0,1.83,2024-12-01,1.63
+low_health,,1,44.36,0.0,100.0,0.31,,9.95,33.0,0.0,2024-12-01,0.0

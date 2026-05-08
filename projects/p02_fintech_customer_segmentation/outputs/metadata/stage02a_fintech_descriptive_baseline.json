@@ -1,0 +1,19 @@
+{
+  "generated_at": "2026-05-07T12:44:08",
+  "project": "p02_fintech_customer_segmentation",
+  "run_name": "stage02a_fintech_descriptive_baseline",
+  "task": "descriptive_stats",
+  "dataset_analyzed": "projects/p02_fintech_customer_segmentation/data/cleaned/fintech_customer_cleaned.csv",
+  "cleaning_rules": "projects/p02_fintech_customer_segmentation/configs/project_config.yaml",
+  "report_path": "projects/p02_fintech_customer_segmentation/outputs/reports/stage02a_fintech_descriptive_baseline.md",
+  "report_version": "stage02a_fintech_descriptive_baseline",
+  "validation_status": "pass",
+  "validation_warnings": [],
+  "validation_issues": [],
+  "critical_count": 0,
+  "warning_count": 0,
+  "llm_assisted": true,
+  "manual_review_required": true,
+  "manual_review_completed": false,
+  "governance_note": "AI-assisted analysis output; human review required before business-critical use."
+}

@@ -1,0 +1,9 @@
+metric,control_n,treatment_n,control_rate_percent,treatment_rate_percent,absolute_lift_percentage_points,relative_lift_percent,control_ci_low_percent,control_ci_high_percent,treatment_ci_low_percent,treatment_ci_high_percent,p_value,statistically_significant_05
+onboarding_completion_flag,4969,5031,48.32,53.91,5.59,11.56,46.93,49.71,52.53,55.28,0.0,True
+activation_flag,4969,5031,49.1,54.66,5.56,11.32,47.71,50.49,53.29,56.04,0.0,True
+retained_30d,4969,5031,50.09,54.06,3.97,7.93,48.7,51.48,52.69,55.44,0.0001,True
+retained_60d,4969,5031,45.32,47.49,2.16,4.78,43.94,46.71,46.11,48.87,0.03,True
+churn_30d,4969,5031,49.91,45.94,-3.97,-7.96,48.52,51.3,44.56,47.31,0.0001,True
+upgrade_flag,4969,5031,16.5,17.89,1.39,8.4,15.47,17.53,16.83,18.95,0.0662,False
+expansion_revenue_flag,4969,5031,13.83,15.07,1.24,8.98,12.87,14.79,14.08,16.06,0.0776,False
+negative_feedback_flag,4969,5031,7.27,8.55,1.28,17.65,6.54,7.99,7.77,9.32,0.0176,True

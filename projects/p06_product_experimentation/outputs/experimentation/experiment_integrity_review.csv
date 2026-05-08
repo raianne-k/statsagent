@@ -1,0 +1,10 @@
+check,status,value,note
+control_group_count,info,4969.0,Number of users assigned to control.
+treatment_group_count,info,5031.0,Number of users assigned to treatment.
+group_imbalance_percent,pass,0.62,Absolute imbalance between control and treatment as percent of assigned population.
+duplicate_user_ids,pass,0.0,Duplicate user IDs should be zero for user-level experiment analysis.
+null_experiment_groups,pass,0.0,Users should have non-null experiment assignment.
+assignment_valid_rate_percent,pass,96.36,Share of users with valid experiment assignment.
+experiment_eligibility_rate_percent,pass,96.86,Share of users eligible for the experiment.
+low_exposure_rate_percent,pass,3.64,Share of users with less than full exposure window.
+exposure_gap_days,pass,0.09,Absolute difference in average exposure days between treatment and control.

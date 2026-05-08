@@ -1,0 +1,5 @@
+metric,latest_forecast,forecast_direction
+retention_rate,0.9301,deteriorating
+churn_rate,0.0699,deteriorating
+total_mrr,2261192.55,growing
+revenue_at_risk,36961.3,deteriorating

@@ -1,0 +1,26 @@
+{
+  "generated_at": "2026-05-07T11:03:40",
+  "project": "01_marketplace_descriptive",
+  "run_name": "stage01b_cleaned_pipeline",
+  "task": "descriptive_stats",
+  "dataset_analyzed": "projects/01_marketplace_descriptive/data/cleaned/marketplace_cleaned.csv",
+  "cleaning_rules": "configs/cleaning_rules.yaml",
+  "report_path": "projects/01_marketplace_descriptive/outputs/reports/stage01b_cleaned_pipeline_v2.md",
+  "report_version": "stage01b_cleaned_pipeline_v2",
+  "validation_status": "human_review_required",
+  "validation_warnings": [
+    "Possible overclaim: interpretation uses causal language: 'drives'."
+  ],
+  "validation_issues": [
+    {
+      "severity": "critical",
+      "message": "Possible overclaim: interpretation uses causal language: 'drives'."
+    }
+  ],
+  "critical_count": 1,
+  "warning_count": 0,
+  "llm_assisted": true,
+  "manual_review_required": true,
+  "manual_review_completed": false,
+  "governance_note": "AI-assisted analysis output; human review required before business-critical use."
+}

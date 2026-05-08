@@ -1,0 +1,7 @@
+forecast_month,forecast_retention_rate,forecast_retention_lower,forecast_retention_upper,forecast_horizon_month,forecast_method
+2025-01-01,0.9561,0.9238,0.9896,1,linear_projection_with_operational_decay_and_uncertainty_band
+2025-02-01,0.9509,0.8887,1.0,2,linear_projection_with_operational_decay_and_uncertainty_band
+2025-03-01,0.9457,0.8559,1.0,3,linear_projection_with_operational_decay_and_uncertainty_band
+2025-04-01,0.9405,0.825,1.0,4,linear_projection_with_operational_decay_and_uncertainty_band
+2025-05-01,0.9353,0.796,1.0,5,linear_projection_with_operational_decay_and_uncertainty_band
+2025-06-01,0.9301,0.7687,1.0,6,linear_projection_with_operational_decay_and_uncertainty_band

@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SaaS Churn Prediction — Executive Report</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --brand:      #81A0CE;
+      --brand-dark: #5f7fae;
+      --ink:        #3F4247;
+      --ink-light:  #6b7280;
+      --surface:    #f7f8fa;
+      --surface-2:  #eef1f6;
+      --border:     #dde3ee;
+      --white:      #ffffff;
+      --accent-r:   #e07070;
+      --radius:     10px;
+      --shadow:     0 2px 12px rgba(129,160,206,.13);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Sora', sans-serif;
+      background: var(--surface);
+      color: var(--ink);
+      line-height: 1.65;
+      font-size: 14px;
+    }
+
+    /* ── HEADER ─────────────────────────────────────────── */
+    .report-header {
+      background: var(--ink);
+      color: var(--white);
+      padding: 52px 64px 44px;
+      position: relative;
+      overflow: hidden;
+    }
+    .report-header::before {
+      content: '';
+      position: absolute;
+      top: -60px; right: -60px;
+      width: 340px; height: 340px;
+      border-radius: 50%;
+      background: var(--brand);
+      opacity: .12;
+    }
+    .report-header::after {
+      content: '';
+      position: absolute;
+      bottom: -80px; right: 120px;
+      width: 200px; height: 200px;
+      border-radius: 50%;
+      background: var(--brand);
+      opacity: .07;
+    }
+    .header-eyebrow {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: var(--brand);
+      margin-bottom: 14px;
+    }
+    .report-header h1 {
+      font-size: 32px;
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 10px;
+      position: relative;
+    }
+    .header-sub {
+      font-size: 13px;
+      color: rgba(255,255,255,.55);
+      font-weight: 300;
+    }
+    .header-meta {
+      margin-top: 28px;
+      display: flex;
+      gap: 32px;
+      font-size: 12px;
+      color: rgba(255,255,255,.45);
+      position: relative;
+    }
+    .header-meta span strong {
+      color: rgba(255,255,255,.75);
+      font-weight: 500;
+    }
+
+    /* ── LAYOUT ─────────────────────────────────────────── */
+    .report-body {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 48px 40px 80px;
+    }
+
+    /* ── SECTION ────────────────────────────────────────── */
+    section {
+      margin-bottom: 52px;
+    }
+    .section-label {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+    .section-label h2 {
+      font-size: 15px;
+      font-weight: 600;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+      color: var(--ink);
+    }
+    .section-label::before {
+      content: '';
+      display: block;
+      width: 4px;
+      height: 20px;
+      border-radius: 2px;
+      background: var(--brand);
+      flex-shrink: 0;
+    }
+
+    /* ── EXEC SUMMARY CARD ──────────────────────────────── */
+    .summary-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--brand);
+      border-radius: var(--radius);
+      padding: 28px 32px;
+      box-shadow: var(--shadow);
+      color: var(--ink-light);
+      font-size: 14px;
+      line-height: 1.75;
+    }
+    .summary-card p + p { margin-top: 12px; }
+
+    /* ── METRIC CARDS ───────────────────────────────────── */
+    .metric-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+    .metric-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 22px 24px 20px;
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+    }
+    .metric-card::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--brand);
+    }
+    .metric-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--ink-light);
+      margin-bottom: 10px;
+    }
+    .metric-value {
+      font-family: 'DM Mono', monospace;
+      font-size: 26px;
+      font-weight: 500;
+      color: var(--ink);
+      letter-spacing: -.01em;
+    }
+    .metric-note {
+      margin-top: 6px;
+      font-size: 11px;
+      color: var(--ink-light);
+    }
+
+    /* ── CALLOUT ────────────────────────────────────────── */
+    .callout {
+      background: var(--surface-2);
+      border-radius: var(--radius);
+      padding: 14px 20px;
+      font-size: 13px;
+      color: var(--ink-light);
+      border: 1px solid var(--border);
+      margin-top: 14px;
+    }
+    .callout strong { color: var(--ink); }
+
+    /* ── TABLES ─────────────────────────────────────────── */
+    .table-wrap {
+      overflow-x: auto;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+    }
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      background: var(--white);
+      font-size: 13px;
+    }
+    .data-table thead tr {
+      background: var(--ink);
+      color: var(--white);
+    }
+    .data-table thead th {
+      padding: 13px 16px;
+      text-align: left;
+      font-weight: 500;
+      font-size: 11px;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+    .data-table tbody tr {
+      border-bottom: 1px solid var(--border);
+      transition: background .15s;
+    }
+    .data-table tbody tr:last-child { border-bottom: none; }
+    .data-table tbody tr:hover { background: var(--surface-2); }
+    .data-table tbody td {
+      padding: 11px 16px;
+      font-family: 'DM Mono', monospace;
+      font-size: 12.5px;
+      color: var(--ink);
+    }
+    .data-table tbody td:first-child {
+      font-family: 'Sora', sans-serif;
+      font-weight: 500;
+      color: var(--ink);
+    }
+
+    /* ── TWO-COL ────────────────────────────────────────── */
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+    .two-col .section-label { margin-bottom: 14px; }
+    .two-col h3 {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--ink-light);
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      margin-bottom: 12px;
+    }
+
+    /* ── GOVERNANCE ─────────────────────────────────────── */
+    .governance {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px 32px;
+      box-shadow: var(--shadow);
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+    }
+    .governance-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: var(--surface-2);
+      border: 2px solid var(--brand);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: 16px;
+      margin-top: 2px;
+    }
+    .governance-text h3 {
+      font-size: 13px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      margin-bottom: 8px;
+      color: var(--ink);
+    }
+    .governance-text p {
+      font-size: 13px;
+      color: var(--ink-light);
+      line-height: 1.7;
+    }
+
+    /* ── FOOTER ─────────────────────────────────────────── */
+    .report-footer {
+      border-top: 1px solid var(--border);
+      margin-top: 64px;
+      padding-top: 24px;
+      display: flex;
+      justify-content: space-between;
+      font-size: 11px;
+      color: var(--ink-light);
+    }
+
+    @media (max-width: 780px) {
+      .metric-grid { grid-template-columns: 1fr 1fr; }
+      .two-col { grid-template-columns: 1fr; }
+      .report-header { padding: 36px 28px 30px; }
+      .report-body { padding: 32px 20px 60px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══ HEADER ══════════════════════════════════════════════ -->
+<header class="report-header">
+  <div class="header-eyebrow">Analytical Report · p05_saas_churn_prediction</div>
+  <h1>SaaS Churn Prediction<br>Executive Report</h1>
+  <p class="header-sub">Decision-support signals for customer retention operations</p>
+  <div class="header-meta">
+    <span><strong>Project</strong> p05_saas_churn_prediction</span>
+    <span><strong>Model</strong> Logistic Regression Baseline</span>
+    <span><strong>Status</strong> Exploratory / Portfolio</span>
+  </div>
+</header>
+
+<!-- ══ BODY ════════════════════════════════════════════════ -->
+<main class="report-body">
+
+  <!-- EXECUTIVE SUMMARY -->
+  <section>
+    <div class="section-label"><h2>Executive Summary</h2></div>
+    <div class="summary-card">
+      <p>
+        This report summarises the churn-prediction baseline built on a synthetic SaaS customer dataset.
+        The model ingests behavioural, product-usage, support, and account-health signals to surface accounts
+        most likely to churn before renewal.
+      </p>
+      <p>
+        The intent is <strong>decision support, not automation</strong>: outputs help customer-success teams
+        prioritise outreach rather than trigger any automated action. All predictions should pass
+        human review before influencing retention workflows.
+      </p>
+    </div>
+  </section>
+
+  <!-- MODEL PERFORMANCE -->
+  <section>
+    <div class="section-label"><h2>Model Performance</h2></div>
+    <div class="metric-grid">
+      <div class="metric-card">
+        <div class="metric-label">Accuracy</div>
+        <div class="metric-value">0.5790</div>
+        <div class="metric-note">Overall correct classifications</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-label">Precision</div>
+        <div class="metric-value">0.4260</div>
+        <div class="metric-note">Of flagged accounts, truly at risk</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-label">Recall</div>
+        <div class="metric-value">0.5870</div>
+        <div class="metric-note">Actual churners correctly caught</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-label">ROC AUC</div>
+        <div class="metric-value">0.6160</div>
+        <div class="metric-note">Discrimination ability (1.0 = perfect)</div>
+      </div>
+    </div>
+    <div class="callout">
+      <strong>Threshold context:</strong> Accuracy alone is insufficient for churn workflows.
+      Recall and threshold tradeoffs matter because missed churn-risk accounts typically carry
+      higher business cost than reviewing false positives.
+    </div>
+  </section>
+
+  <!-- THRESHOLD TRADEOFFS -->
+  <section>
+    <div class="section-label"><h2>Threshold Tradeoffs</h2></div>
+    <div class="table-wrap">
+      <table class="dataframe data-table">
+  <thead>
+    <tr style="text-align: right;">
+      <th>threshold</th>
+      <th>accuracy</th>
+      <th>precision</th>
+      <th>recall</th>
+      <th>f1_score</th>
+      <th>true_positives</th>
+      <th>false_positives</th>
+      <th>true_negatives</th>
+      <th>false_negatives</th>
+      <th>accounts_flagged_percent</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0.3</td>
+      <td>0.393</td>
+      <td>0.361</td>
+      <td>0.960</td>
+      <td>0.525</td>
+      <td>671</td>
+      <td>1186</td>
+      <td>115</td>
+      <td>28</td>
+      <td>92.85</td>
+    </tr>
+    <tr>
+      <td>0.4</td>
+      <td>0.503</td>
+      <td>0.399</td>
+      <td>0.837</td>
+      <td>0.541</td>
+      <td>585</td>
+      <td>880</td>
+      <td>421</td>
+      <td>114</td>
+      <td>73.25</td>
+    </tr>
+    <tr>
+      <td>0.5</td>
+      <td>0.579</td>
+      <td>0.426</td>
+      <td>0.587</td>
+      <td>0.493</td>
+      <td>410</td>
+      <td>553</td>
+      <td>748</td>
+      <td>289</td>
+      <td>48.15</td>
+    </tr>
+    <tr>
+      <td>0.6</td>
+      <td>0.635</td>
+      <td>0.466</td>
+      <td>0.290</td>
+      <td>0.358</td>
+      <td>203</td>
+      <td>233</td>
+      <td>1068</td>
+      <td>496</td>
+      <td>21.80</td>
+    </tr>
+    <tr>
+      <td>0.7</td>
+      <td>0.649</td>
+      <td>0.481</td>
+      <td>0.054</td>
+      <td>0.098</td>
+      <td>38</td>
+      <td>41</td>
+      <td>1260</td>
+      <td>661</td>
+      <td>3.95</td>
+    </tr>
+  </tbody>
+</table>
+    </div>
+    <div class="callout">
+      Adjusting the probability threshold shifts the precision–recall balance.
+      Lower thresholds cast a wider net; higher thresholds reduce review volume at the cost of missed accounts.
+    </div>
+  </section>
+
+  <!-- TOP FEATURE SIGNALS -->
+  <section>
+    <div class="section-label"><h2>Top Feature Signals</h2></div>
+    <div class="table-wrap">
+      <table class="dataframe data-table">
+  <thead>
+    <tr style="text-align: right;">
+      <th>feature</th>
+      <th>coefficient</th>
+      <th>absolute_coefficient</th>
+      <th>direction</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>support_escalation_flag</td>
+      <td>0.3433</td>
+      <td>0.3433</td>
+      <td>increases_churn_probability</td>
+    </tr>
+    <tr>
+      <td>contract_type_annual</td>
+      <td>-0.2634</td>
+      <td>0.2634</td>
+      <td>decreases_churn_probability</td>
+    </tr>
+    <tr>
+      <td>contract_type_monthly</td>
+      <td>0.2501</td>
+      <td>0.2501</td>
+      <td>increases_churn_probability</td>
+    </tr>
+    <tr>
+      <td>account_health_score</td>
+      <td>-0.2399</td>
+      <td>0.2399</td>
+      <td>decreases_churn_probability</td>
+    </tr>
+    <tr>
+      <td>renewal_meeting_completed</td>
+      <td>-0.2277</td>
+      <td>0.2277</td>
+      <td>decreases_churn_probability</td>
+    </tr>
+    <tr>
+      <td>plan_tier_enterprise</td>
+      <td>0.1264</td>
+      <td>0.1264</td>
+      <td>increases_churn_probability</td>
+    </tr>
+    <tr>
+      <td>region_UK</td>
+      <td>0.1184</td>
+      <td>0.1184</td>
+      <td>increases_churn_probability</td>
+    </tr>
+    <tr>
+      <td>company_size_mid_market</td>
+      <td>-0.1106</td>
+      <td>0.1106</td>
+      <td>decreases_churn_probability</td>
+    </tr>
+    <tr>
+      <td>discount_received</td>
+      <td>0.1030</td>
+      <td>0.1030</td>
+      <td>increases_churn_probability</td>
+    </tr>
+    <tr>
+      <td>industry_education</td>
+      <td>-0.0812</td>
+      <td>0.0812</td>
+      <td>decreases_churn_probability</td>
+    </tr>
+    <tr>
+      <td>plan_tier_starter</td>
+      <td>-0.0809</td>
+      <td>0.0809</td>
+      <td>decreases_churn_probability</td>
+    </tr>
+    <tr>
+      <td>days_since_last_login</td>
+      <td>0.0777</td>
+      <td>0.0777</td>
+      <td>increases_churn_probability</td>
+    </tr>
+  </tbody>
+</table>
+    </div>
+    <div class="callout">
+      <strong>Note:</strong> Feature importance reflects the model's learned coefficients and does not
+      imply causal relationships between these signals and customer churn.
+    </div>
+  </section>
+
+  <!-- SEGMENTATION -->
+  <section>
+    <div class="section-label"><h2>Segmentation Context</h2></div>
+    <div class="two-col">
+      <div>
+        <h3>Health Band Comparison</h3>
+        <div class="table-wrap">
+          <table class="dataframe data-table">
+  <thead>
+    <tr style="text-align: right;">
+      <th>health_band</th>
+      <th>account_count</th>
+      <th>churn_rate_percent</th>
+      <th>median_account_health_score</th>
+      <th>median_renewal_probability_score</th>
+      <th>median_feature_adoption_rate</th>
+      <th>median_seat_utilization_percent</th>
+      <th>median_days_since_last_login</th>
+      <th>median_support_ticket_count_90d</th>
+      <th>median_unresolved_ticket_count</th>
+      <th>median_monthly_recurring_revenue</th>
+      <th>onboarding_completion_rate_percent</th>
+      <th>support_escalation_rate_percent</th>
+      <th>renewal_meeting_rate_percent</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>high_health</td>
+      <td>496</td>
+      <td>18.55</td>
+      <td>75.36</td>
+      <td>0.82</td>
+      <td>60.84</td>
+      <td>64.35</td>
+      <td>10.0</td>
+      <td>2.0</td>
+      <td>0.0</td>
+      <td>301.38</td>
+      <td>98.59</td>
+      <td>0.60</td>
+      <td>33.06</td>
+    </tr>
+    <tr>
+      <td>low_health</td>
+      <td>3372</td>
+      <td>44.04</td>
+      <td>29.28</td>
+      <td>0.56</td>
+      <td>29.03</td>
+      <td>34.77</td>
+      <td>14.0</td>
+      <td>3.0</td>
+      <td>1.0</td>
+      <td>141.12</td>
+      <td>23.90</td>
+      <td>34.49</td>
+      <td>21.23</td>
+    </tr>
+    <tr>
+      <td>medium_health</td>
+      <td>4012</td>
+      <td>29.14</td>
+      <td>51.82</td>
+      <td>0.70</td>
+      <td>43.83</td>
+      <td>48.56</td>
+      <td>11.0</td>
+      <td>2.0</td>
+      <td>0.0</td>
+      <td>197.16</td>
+      <td>79.01</td>
+      <td>10.32</td>
+      <td>26.89</td>
+    </tr>
+    <tr>
+      <td>NaN</td>
+      <td>120</td>
+      <td>40.00</td>
+      <td>NaN</td>
+      <td>0.62</td>
+      <td>38.24</td>
+      <td>41.28</td>
+      <td>14.0</td>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>255.56</td>
+      <td>55.83</td>
+      <td>19.17</td>
+      <td>28.33</td>
+    </tr>
+  </tbody>
+</table>
+        </div>
+      </div>
+      <div>
+        <h3>Contract Type Comparison</h3>
+        <div class="table-wrap">
+          <table class="dataframe data-table">
+  <thead>
+    <tr style="text-align: right;">
+      <th>contract_type</th>
+      <th>account_count</th>
+      <th>churn_rate_percent</th>
+      <th>median_account_health_score</th>
+      <th>median_renewal_probability_score</th>
+      <th>median_feature_adoption_rate</th>
+      <th>median_seat_utilization_percent</th>
+      <th>median_days_since_last_login</th>
+      <th>median_support_ticket_count_90d</th>
+      <th>median_unresolved_ticket_count</th>
+      <th>median_monthly_recurring_revenue</th>
+      <th>onboarding_completion_rate_percent</th>
+      <th>support_escalation_rate_percent</th>
+      <th>renewal_meeting_rate_percent</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>annual</td>
+      <td>2996</td>
+      <td>25.23</td>
+      <td>54.24</td>
+      <td>0.75</td>
+      <td>49.92</td>
+      <td>54.38</td>
+      <td>11.0</td>
+      <td>2.0</td>
+      <td>0.0</td>
+      <td>173.58</td>
+      <td>64.12</td>
+      <td>12.88</td>
+      <td>30.64</td>
+    </tr>
+    <tr>
+      <td>monthly</td>
+      <td>5004</td>
+      <td>40.73</td>
+      <td>37.47</td>
+      <td>0.59</td>
+      <td>32.69</td>
+      <td>37.69</td>
+      <td>13.0</td>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>176.04</td>
+      <td>52.18</td>
+      <td>24.32</td>
+      <td>21.48</td>
+    </tr>
+  </tbody>
+</table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CORRELATIONS -->
+  <section>
+    <div class="section-label"><h2>Strongest Continuous Relationships with Churn</h2></div>
+    <div class="table-wrap">
+      <table class="dataframe data-table">
+  <thead>
+    <tr style="text-align: right;">
+      <th>variable</th>
+      <th>correlation_with_churn</th>
+      <th>absolute_correlation</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>account_health_score</td>
+      <td>-0.1928</td>
+      <td>0.1928</td>
+    </tr>
+    <tr>
+      <td>renewal_probability_score</td>
+      <td>-0.1819</td>
+      <td>0.1819</td>
+    </tr>
+    <tr>
+      <td>seat_utilization_percent</td>
+      <td>-0.1381</td>
+      <td>0.1381</td>
+    </tr>
+    <tr>
+      <td>nps_score</td>
+      <td>-0.1253</td>
+      <td>0.1253</td>
+    </tr>
+    <tr>
+      <td>feature_adoption_rate</td>
+      <td>-0.1195</td>
+      <td>0.1195</td>
+    </tr>
+    <tr>
+      <td>login_frequency_30d</td>
+      <td>-0.1171</td>
+      <td>0.1171</td>
+    </tr>
+    <tr>
+      <td>unresolved_ticket_count</td>
+      <td>0.1076</td>
+      <td>0.1076</td>
+    </tr>
+    <tr>
+      <td>avg_session_duration_minutes</td>
+      <td>-0.0981</td>
+      <td>0.0981</td>
+    </tr>
+    <tr>
+      <td>support_ticket_count_90d</td>
+      <td>0.0769</td>
+      <td>0.0769</td>
+    </tr>
+    <tr>
+      <td>days_since_last_login</td>
+      <td>0.0678</td>
+      <td>0.0678</td>
+    </tr>
+  </tbody>
+</table>
+    </div>
+  </section>
+
+  <!-- GOVERNANCE -->
+  <section>
+    <div class="section-label"><h2>Governance</h2></div>
+    <div class="governance">
+      <div class="governance-icon">⚠</div>
+      <div class="governance-text">
+        <h3>Human-in-the-loop requirement</h3>
+        <p>
+          This is an AI-assisted analytical output produced for portfolio and exploratory purposes.
+          All predictions are <strong>decision-support signals only</strong> and must not trigger
+          automated customer-success or retention actions without explicit human review and sign-off.
+          Feature importance coefficients do not establish causality and should not be used as
+          sole justification for operational changes.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="report-footer">
+    <span>p05_saas_churn_prediction · Executive Report</span>
+    <span>Analytical output — not for automated decision-making</span>
+  </footer>
+
+</main>
+</body>
+</html>

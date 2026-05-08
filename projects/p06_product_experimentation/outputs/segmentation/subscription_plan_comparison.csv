@@ -1,0 +1,5 @@
+subscription_plan,account_count,churn_rate_percent,median_account_health_score,mean_account_health_score,median_renewal_probability,mean_renewal_probability,median_monthly_recurring_revenue,mean_monthly_recurring_revenue,median_expansion_revenue,mean_expansion_revenue,median_feature_adoption_rate,mean_feature_adoption_rate,median_onboarding_completion_percent,mean_onboarding_completion_percent,median_seats_used_percent,mean_seats_used_percent,median_days_since_last_login,mean_days_since_last_login,median_support_tickets_last_90d,mean_support_tickets_last_90d,median_nps_score,mean_nps_score
+business,1161,26.61,0.56,0.55,73.87,73.58,801.48,1057.4,125.71,204.63,37.5,38.03,56.66,56.95,69.38,67.45,10.0,15.03,2.0,1.76,36.0,35.49
+enterprise,525,23.43,0.58,0.58,74.59,73.9,4268.6,4576.14,599.53,933.66,40.87,41.48,59.01,59.13,68.91,67.23,10.0,14.77,1.0,1.7,39.0,38.17
+growth,2022,30.37,0.51,0.51,71.04,71.06,202.88,263.14,32.3,49.7,31.82,32.09,53.72,53.59,68.94,67.08,11.0,15.55,2.0,1.77,32.0,31.75
+starter,2292,31.15,0.47,0.47,69.32,69.38,52.38,64.14,7.52,11.35,27.2,27.33,49.18,49.27,68.06,66.46,12.0,16.82,2.0,1.79,27.0,27.92

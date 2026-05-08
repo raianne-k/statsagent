@@ -1,0 +1,4 @@
+usage_band,account_count,churn_rate_percent,median_account_health_score,median_renewal_probability_score,median_feature_adoption_rate,median_seat_utilization_percent,median_days_since_last_login,median_support_ticket_count_90d,median_unresolved_ticket_count,median_monthly_recurring_revenue,onboarding_completion_rate_percent,support_escalation_rate_percent,renewal_meeting_rate_percent
+high_usage,330,24.24,67.11,0.79,74.8,64.38,9.0,1.0,0.0,248.26,67.88,6.06,34.85
+low_usage,3323,39.66,33.04,0.59,24.64,34.95,13.0,3.0,1.0,132.65,52.0,26.78,20.98
+medium_usage,4347,32.11,50.19,0.69,47.39,48.78,12.0,2.0,0.0,210.06,59.35,15.94,27.17

@@ -1,0 +1,127 @@
+project:
+  name: p05_saas_churn_prediction
+  domain: saas
+  stage: churn_prediction_baseline
+
+data:
+  raw_path: projects/p05_saas_churn_prediction/data/raw/saas_churn_prediction_sample.csv
+
+  cleaned_path: projects/p05_saas_churn_prediction/data/cleaned/saas_churn_prediction_cleaned.csv
+
+outputs:
+  cleaning_log: projects/p05_saas_churn_prediction/outputs/cleaning/cleaning_log.json
+  validation_log: projects/p05_saas_churn_prediction/outputs/validation/validation_log.json
+  metadata_path: projects/p05_saas_churn_prediction/outputs/metadata/run_metadata.json
+  report_path: projects/p05_saas_churn_prediction/outputs/reports/final_report.md
+
+variables:
+  id_columns:
+    - account_id
+
+  binary_columns:
+    - churned
+    - multi_product_adoption
+    - onboarding_completed
+    - support_escalation_flag
+    - renewal_meeting_completed
+    - discount_received
+
+  categorical_columns:
+    - region
+    - industry
+    - company_size
+    - plan_tier
+    - contract_type
+    - health_band
+
+  continuous_columns:
+    - monthly_recurring_revenue
+    - tenure_months
+    - weekly_active_users
+    - feature_adoption_rate
+    - login_frequency_30d
+    - avg_session_duration_minutes
+    - support_ticket_count_90d
+    - unresolved_ticket_count
+    - nps_score
+    - account_health_score
+    - seat_utilization_percent
+    - days_since_last_login
+    - renewal_probability_score
+
+invalid_numeric_values:
+  monthly_recurring_revenue:
+    min: 0
+
+  tenure_months:
+    min: 0
+
+  weekly_active_users:
+    min: 0
+
+  feature_adoption_rate:
+    min: 0
+    max: 100
+
+  login_frequency_30d:
+    min: 0
+
+  avg_session_duration_minutes:
+    min: 0
+
+  support_ticket_count_90d:
+    min: 0
+
+  unresolved_ticket_count:
+    min: 0
+
+  nps_score:
+    min: -100
+    max: 100
+
+  account_health_score:
+    min: 0
+    max: 100
+
+  seat_utilization_percent:
+    min: 0
+    max: 100
+
+  days_since_last_login:
+    min: 0
+
+  renewal_probability_score:
+    min: 0
+    max: 1
+
+missing_value_policy:
+  nps_score:
+    action: flag_and_keep
+    reason: >
+      Missing NPS values may indicate non-response behavior
+      rather than missing data error.
+
+  account_health_score:
+    action: flag_and_keep
+    reason: >
+      Health scores may be unavailable for newly onboarded
+      or low-engagement accounts.
+
+cleaning_policy:
+  exclude_id_columns_from_analysis: true
+  keep_id_columns_in_cleaned_dataset: true
+
+governance:
+  synthetic_data: true
+  human_review_required: true
+  ai_assisted_analysis: true
+  allow_row_level_llm_exposure: false
+
+notes:
+  predictive_goal: >
+    Predict SaaS customer churn risk using engagement,
+    operational, lifecycle, and account-health signals.
+
+  governance_note: >
+    This dataset is synthetic and intended for analytical learning,
+    portfolio development, and validation-aware predictive workflows.

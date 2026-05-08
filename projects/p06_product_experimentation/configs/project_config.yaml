@@ -1,0 +1,120 @@
+project:
+  name: p06_product_experimentation
+  domain: product_analytics
+  stage: product_experimentation_baseline
+
+data:
+  raw_path: projects/p06_product_experimentation/data/raw/saas_experimentation_sample.csv
+  cleaned_path: projects/p06_product_experimentation/data/cleaned/saas_experimentation_cleaned.csv
+
+outputs:
+  cleaning_log: projects/p06_product_experimentation/outputs/cleaning/cleaning_log.json
+  validation_log: projects/p06_product_experimentation/outputs/validation/validation_log.json
+  metadata_path: projects/p06_product_experimentation/outputs/metadata/run_metadata.json
+  report_path: projects/p06_product_experimentation/outputs/reports/final_report.md
+
+variables:
+  id_columns:
+    - user_id
+
+  binary_columns:
+    - experiment_eligibility_flag
+    - assignment_valid_flag
+    - low_exposure_flag
+    - onboarding_completion_flag
+    - activation_flag
+    - retained_30d
+    - retained_60d
+    - churn_30d
+    - upgrade_flag
+    - expansion_revenue_flag
+    - negative_feedback_flag
+
+  categorical_columns:
+    - acquisition_channel
+    - region
+    - company_size
+    - industry
+    - experiment_group
+    - subscription_value_band
+    - engagement_band
+    - feature_adoption_band
+
+  continuous_columns:
+    - exposure_days
+    - sessions_first_14d
+    - feature_adoption_count
+    - support_tickets_first_30d
+    - time_to_activation_days
+    - monthly_subscription_value
+
+invalid_numeric_values:
+  exposure_days:
+    min: 0
+
+  sessions_first_14d:
+    min: 0
+
+  feature_adoption_count:
+    min: 0
+
+  support_tickets_first_30d:
+    min: 0
+
+  time_to_activation_days:
+    min: 0
+
+  monthly_subscription_value:
+    min: 0
+
+missing_value_policy:
+  acquisition_channel:
+    action: flag_and_keep
+    reason: >
+      Missing acquisition channel may reflect attribution gaps and should be preserved for validation.
+
+  company_size:
+    action: flag_and_keep
+    reason: >
+      Missing company size may reflect incomplete firmographic enrichment and should be preserved.
+
+  time_to_activation_days:
+    action: flag_and_keep
+    reason: >
+      Time to activation is missing for users who did not activate; missingness is analytically meaningful.
+
+cleaning_policy:
+  exclude_id_columns_from_analysis: true
+  keep_id_columns_in_cleaned_dataset: true
+
+governance:
+  synthetic_data: true
+  human_review_required: true
+  ai_assisted_analysis: true
+  allow_row_level_llm_exposure: false
+
+experiment:
+  experiment_column: experiment_group
+  control_group: control
+  treatment_group: treatment
+  primary_metrics:
+    - activation_flag
+    - retained_30d
+  secondary_metrics:
+    - onboarding_completion_flag
+    - retained_60d
+    - churn_30d
+    - upgrade_flag
+    - expansion_revenue_flag
+    - negative_feedback_flag
+  significance_level: 0.05
+  confidence_level: 0.95
+
+notes:
+  experiment_goal: >
+    Evaluate whether a redesigned SaaS onboarding experience improves activation,
+    retention, and engagement outcomes compared with the control experience.
+
+  governance_note: >
+    This dataset is synthetic and designed for portfolio and analytical learning purposes.
+    Experiment outputs require human review before rollout or product decision-making.

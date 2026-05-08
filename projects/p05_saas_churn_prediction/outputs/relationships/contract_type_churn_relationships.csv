@@ -1,0 +1,3 @@
+contract_type,account_count,churn_rate_percent,median_health_score,median_feature_adoption,median_days_since_login
+annual,2996,25.23,54.235,49.925,11.0
+monthly,5004,40.73,37.474999999999994,32.69,13.0

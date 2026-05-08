@@ -1,0 +1,5 @@
+tenure_cohort,customer_count,delinquency_rate_percent,autopay_rate_percent,median_active_loan_amount,mean_active_loan_amount,median_loan_to_income_ratio,mean_loan_to_income_ratio,median_savings_balance,mean_savings_balance,median_installment_size,mean_installment_size,median_repayment_rate_percent,mean_repayment_rate_percent,median_avg_days_late,mean_avg_days_late,median_missed_payments,mean_missed_payments,median_app_sessions_per_week,mean_app_sessions_per_week,median_days_since_last_login,mean_days_since_last_login,median_number_of_products,mean_number_of_products
+new_0_3m,1775,16.56,65.63,1326.55,1864.2,0.82,1.02,861.38,1320.64,132.72,227.9,93.56,92.39,2.6,3.78,1.0,1.0,4.0,4.23,6.0,8.65,1.0,1.65
+early_4_12m,2962,13.81,65.83,1398.14,1878.16,0.85,1.03,849.36,1265.29,139.37,235.22,93.92,92.63,2.5,3.74,1.0,0.96,4.0,4.15,6.0,8.73,1.0,1.59
+established_13_24m,1901,14.41,65.49,1320.93,1896.21,0.8,1.02,866.7,1278.35,134.15,225.37,93.55,92.4,2.7,3.76,1.0,1.0,4.0,4.24,6.0,9.15,1.0,1.65
+mature_25m_plus,1362,15.42,62.92,1410.12,1859.63,0.8,0.99,899.73,1317.56,142.14,229.08,93.74,92.5,2.2,3.66,1.0,0.97,4.0,4.09,6.0,8.67,1.0,1.64

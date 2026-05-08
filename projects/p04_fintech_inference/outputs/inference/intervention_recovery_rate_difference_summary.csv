@@ -1,0 +1,2 @@
+group,outcome,highest_group,highest_rate_percent,highest_n,lowest_group,lowest_rate_percent,lowest_n,rate_difference_percent,interpretation_note
+intervention_group,payment_recovery_flag,sms_reminder,59.5,2141,hardship_outreach,48.26,201,11.24,Rate difference is observational only and does not imply causality.

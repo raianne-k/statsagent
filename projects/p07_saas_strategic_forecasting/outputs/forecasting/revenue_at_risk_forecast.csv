@@ -1,0 +1,7 @@
+forecast_month,forecast_revenue_at_risk,forecast_revenue_at_risk_lower,forecast_revenue_at_risk_upper,forecast_horizon_month,forecast_method
+2025-01-01,30989.14,28171.95,34088.06,1,linear_projection_with_operational_risk_adjustment_and_uncertainty_band
+2025-02-01,32149.66,26791.38,38579.59,2,linear_projection_with_operational_risk_adjustment_and_uncertainty_band
+2025-03-01,33327.14,25636.26,43325.28,3,linear_projection_with_operational_risk_adjustment_and_uncertainty_band
+2025-04-01,34521.57,24658.26,48330.19,4,linear_projection_with_operational_risk_adjustment_and_uncertainty_band
+2025-05-01,35732.95,23821.97,53599.43,5,linear_projection_with_operational_risk_adjustment_and_uncertainty_band
+2025-06-01,36961.3,23100.81,59138.08,6,linear_projection_with_operational_risk_adjustment_and_uncertainty_band

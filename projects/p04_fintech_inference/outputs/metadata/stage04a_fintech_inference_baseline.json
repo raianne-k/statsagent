@@ -1,0 +1,19 @@
+{
+  "generated_at": "2026-05-07T20:27:38",
+  "project": "p04_fintech_inference",
+  "run_name": "stage04a_fintech_inference_baseline",
+  "task": "descriptive_stats",
+  "dataset_analyzed": "projects/p04_fintech_inference/data/cleaned/fintech_repayment_inference_cleaned.csv",
+  "cleaning_rules": "projects/p04_fintech_inference/configs/project_config.yaml",
+  "report_path": "projects/p04_fintech_inference/outputs/reports/stage04a_fintech_inference_baseline_v2.md",
+  "report_version": "stage04a_fintech_inference_baseline_v2",
+  "validation_status": "pass",
+  "validation_warnings": [],
+  "validation_issues": [],
+  "critical_count": 0,
+  "warning_count": 0,
+  "llm_assisted": true,
+  "manual_review_required": true,
+  "manual_review_completed": false,
+  "governance_note": "AI-assisted analysis output; human review required before business-critical use."
+}

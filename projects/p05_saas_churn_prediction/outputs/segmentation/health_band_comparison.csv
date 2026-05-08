@@ -1,0 +1,5 @@
+health_band,account_count,churn_rate_percent,median_account_health_score,median_renewal_probability_score,median_feature_adoption_rate,median_seat_utilization_percent,median_days_since_last_login,median_support_ticket_count_90d,median_unresolved_ticket_count,median_monthly_recurring_revenue,onboarding_completion_rate_percent,support_escalation_rate_percent,renewal_meeting_rate_percent
+high_health,496,18.55,75.36,0.82,60.84,64.35,10.0,2.0,0.0,301.38,98.59,0.6,33.06
+low_health,3372,44.04,29.28,0.56,29.03,34.77,14.0,3.0,1.0,141.12,23.9,34.49,21.23
+medium_health,4012,29.14,51.82,0.7,43.83,48.56,11.0,2.0,0.0,197.16,79.01,10.32,26.89
+,120,40.0,,0.62,38.24,41.28,14.0,2.0,1.0,255.56,55.83,19.17,28.33

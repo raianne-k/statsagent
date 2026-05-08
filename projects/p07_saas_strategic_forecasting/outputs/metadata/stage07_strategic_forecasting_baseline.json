@@ -1,0 +1,19 @@
+{
+  "generated_at": "2026-05-07T23:58:07",
+  "project": "p07_saas_strategic_forecasting",
+  "run_name": "stage07_strategic_forecasting_baseline",
+  "task": "descriptive_stats",
+  "dataset_analyzed": "projects/p07_saas_strategic_forecasting/data/cleaned/saas_account_monthly_cleaned.csv",
+  "cleaning_rules": "projects/p07_saas_strategic_forecasting/configs/project_config.yaml",
+  "report_path": "projects/p07_saas_strategic_forecasting/outputs/reports/stage07_strategic_forecasting_baseline.md",
+  "report_version": "stage07_strategic_forecasting_baseline",
+  "validation_status": "pass",
+  "validation_warnings": [],
+  "validation_issues": [],
+  "critical_count": 0,
+  "warning_count": 0,
+  "llm_assisted": true,
+  "manual_review_required": true,
+  "manual_review_completed": false,
+  "governance_note": "AI-assisted analysis output; human review required before business-critical use."
+}

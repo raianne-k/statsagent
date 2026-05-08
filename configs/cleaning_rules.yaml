@@ -1,0 +1,74 @@
+project:
+  name: 01_marketplace_descriptive
+  domain: marketplace
+  stage: descriptive_statistics_cleaning
+
+data:
+  raw_path: data/raw/marketplace_sample.csv
+  cleaned_path: projects/01_marketplace_descriptive/data/cleaned/marketplace_cleaned.csv
+
+outputs:
+  cleaning_log: projects/01_marketplace_descriptive/outputs/cleaning/cleaning_log.json
+
+variables:
+  id_columns:
+    - listing_id
+    - seller_id
+    - buyer_id
+
+  binary_columns:
+    - add_to_cart
+    - purchased
+    - buyer_returning
+
+  categorical_columns:
+    - category
+    - region
+    - shipping_price
+
+  continuous_columns:
+    - item_price
+    - views
+    - listing_age_days
+    - seller_rating
+    - likes
+
+invalid_numeric_values:
+  item_price:
+    min: 0
+  views:
+    min: 0
+  listing_age_days:
+    min: 0
+  likes:
+    min: 0
+  seller_rating:
+    min: 0
+    max: 5
+
+missing_value_policy:
+  seller_rating:
+    action: flag_and_keep
+    reason: Missing seller ratings may represent new or unrated sellers.
+
+cleaning_policy:
+  exclude_id_columns_from_analysis: true
+  keep_id_columns_in_cleaned_dataset: true
+
+governance:
+  dataset_classification: synthetic
+  llm_exposure_policy: summary_only
+  human_review_required_for:
+    - critical_validation_issues
+    - unresolved_cleaning_flags
+    - causal_interpretation
+    - missing_required_fields
+  sensitive_columns:
+    - name
+    - email
+    - phone
+    - address
+    - ssn
+    - personal_id
+    - customer_id
+    - user_id

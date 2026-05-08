@@ -1,0 +1,13 @@
+plan_type,company_size,account_month_count,unique_accounts,churn_rate_percent,downgrade_rate_percent,median_product_health_score,median_renewal_probability,median_monthly_recurring_revenue,total_monthly_recurring_revenue,total_revenue_at_risk,median_feature_adoption_rate,median_usage_frequency,median_days_since_last_login,median_support_tickets,median_onboarding_completion,revenue_at_risk_rate
+enterprise,enterprise,1245,90,3.05,3.94,0.64,100.0,13475.19,18229591.46,274465.41,69.17,17.54,9.0,1.0,79.01,1.51
+business,enterprise,1164,98,3.61,4.04,0.64,100.0,3852.81,5009688.58,67039.72,69.76,17.84,9.0,1.0,79.08,1.34
+enterprise,mid_market,685,56,4.09,2.48,0.64,100.0,5589.58,4196340.52,56595.52,70.89,17.99,8.0,1.0,74.9,1.35
+business,mid_market,2133,167,3.61,4.22,0.63,100.0,1733.3,3955830.09,54762.41,68.88,17.67,9.0,1.0,78.62,1.38
+growth,mid_market,3669,263,3.0,3.54,0.63,100.0,623.76,2553022.83,37342.32,69.78,17.7,8.0,1.0,78.22,1.46
+growth,small,3791,316,4.17,3.72,0.62,100.0,268.17,1106920.25,18055.33,67.49,17.34,8.0,1.0,72.22,1.63
+business,small,1114,104,4.58,3.41,0.61,100.0,775.13,893213.3,13044.06,67.01,17.19,10.0,1.0,74.26,1.46
+starter,small,6679,555,4.46,3.86,0.6,100.0,85.08,613225.7,10830.78,66.68,17.09,9.0,1.0,73.47,1.77
+enterprise,small,183,16,6.56,2.73,0.58,99.73,2289.86,485155.39,8537.11,62.85,16.66,10.0,1.0,73.81,1.76
+growth,enterprise,380,28,2.11,2.37,0.67,100.0,1801.97,710803.53,6025.38,74.5,18.4,7.0,1.0,85.54,0.85
+starter,mid_market,1295,103,3.78,3.55,0.62,100.0,197.65,277003.79,4254.62,67.26,17.23,10.0,1.0,79.99,1.54
+starter,enterprise,44,4,9.09,2.27,0.56,99.8,516.03,21275.75,370.67,61.88,15.81,15.0,1.0,74.81,1.74

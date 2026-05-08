@@ -1,0 +1,89 @@
+project:
+  name: 01_marketplace_descriptive
+  domain: marketplace
+  stage: descriptive_statistics_cleaning
+  dataset_type: synthetic
+
+data:
+  raw_path: data/raw/marketplace_sample.csv
+  cleaned_path: projects/01_marketplace_descriptive/data/cleaned/marketplace_cleaned.csv
+
+outputs:
+  cleaning_log: projects/01_marketplace_descriptive/outputs/cleaning/cleaning_log.json
+  validation_log: projects/01_marketplace_descriptive/outputs/validation/validation_log.json
+  report_dir: projects/01_marketplace_descriptive/outputs/reports
+  metadata_dir: projects/01_marketplace_descriptive/outputs/metadata
+  plots_dir: projects/01_marketplace_descriptive/outputs/plots
+
+variables:
+  id_columns:
+    - listing_id
+    - seller_id
+    - buyer_id
+
+  binary_columns:
+    - add_to_cart
+    - purchased
+    - buyer_returning
+
+  categorical_columns:
+    - category
+    - region
+    - shipping_price
+
+  continuous_columns:
+    - item_price
+    - views
+    - listing_age_days
+    - seller_rating
+    - likes
+
+cleaning_policy:
+  exclude_id_columns_from_analysis: true
+  keep_id_columns_in_cleaned_dataset: true
+  preserve_raw_data: true
+  conservative_cleaning: true
+
+invalid_numeric_values:
+  item_price:
+    min: 0
+  views:
+    min: 0
+  listing_age_days:
+    min: 0
+  likes:
+    min: 0
+  seller_rating:
+    min: 0
+    max: 5
+
+missing_value_policy:
+  seller_rating:
+    action: flag_and_keep
+    reason: "Missing seller ratings may represent new or unrated sellers."
+
+low_cardinality_numeric_policy:
+  shipping_price:
+    action: treat_as_categorical
+    reason: "Shipping price appears to be tier-based rather than continuous."
+
+governance:
+  dataset_classification: synthetic
+  llm_exposure_policy: summary_only
+  raw_rows_sent_to_llm: false
+  human_review_required: true
+  sensitive_columns:
+    - name
+    - email
+    - phone
+    - address
+    - ssn
+    - personal_id
+    - customer_id
+    - user_id
+
+notes:
+  - Raw data is not overwritten.
+  - Cleaned data is saved separately as an analytical dataset.
+  - Technical cleaning columns should not be treated as primary analytical variables.
+  - Human review is required before using outputs for business-critical decisions.

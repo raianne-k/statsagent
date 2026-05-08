@@ -1,0 +1,5 @@
+plan_tier,account_count,churn_rate_percent,median_account_health_score,median_renewal_probability_score,median_feature_adoption_rate,median_seat_utilization_percent,median_days_since_last_login,median_support_ticket_count_90d,median_unresolved_ticket_count,median_monthly_recurring_revenue,onboarding_completion_rate_percent,support_escalation_rate_percent,renewal_meeting_rate_percent
+business,1580,32.91,46.38,0.66,42.9,47.04,11.0,2.0,1.0,840.36,56.84,18.92,25.32
+enterprise,797,33.12,48.98,0.67,43.22,48.24,12.0,2.0,0.0,4300.53,61.23,17.06,28.23
+growth,2656,35.35,43.79,0.65,38.82,43.28,12.0,2.0,1.0,202.8,57.27,19.77,26.81
+starter,2967,36.1,40.26,0.64,35.03,40.15,13.0,2.0,1.0,52.56,54.77,21.67,22.11

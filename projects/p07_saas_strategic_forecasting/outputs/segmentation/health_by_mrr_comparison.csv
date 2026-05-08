@@ -1,0 +1,13 @@
+health_band,mrr_band,account_month_count,unique_accounts,churn_rate_percent,downgrade_rate_percent,median_product_health_score,median_renewal_probability,median_monthly_recurring_revenue,total_monthly_recurring_revenue,total_revenue_at_risk,median_feature_adoption_rate,median_usage_frequency,median_days_since_last_login,median_support_tickets,median_onboarding_completion,revenue_at_risk_rate
+medium_health,enterprise_mrr,932,137,3.76,3.11,0.55,99.51,9836.32,10629007.45,240136.68,59.24,15.16,11.5,1.0,71.93,2.26
+medium_health,high_mrr,2253,330,4.75,3.15,0.56,99.86,1906.95,5111349.27,97765.56,61.1,15.56,11.0,1.0,71.22,1.91
+high_health,enterprise_mrr,1044,113,2.2,2.87,0.73,100.0,9567.48,12416366.17,58546.1,80.89,20.49,6.0,1.0,85.54,0.47
+medium_health,mid_mrr,3887,553,4.17,3.45,0.56,99.69,493.14,2046188.87,45294.19,60.09,15.36,11.0,1.0,71.2,2.21
+low_health,enterprise_mrr,34,14,14.71,17.65,0.32,89.76,13828.2,439497.35,42356.14,33.36,10.02,15.5,1.0,60.49,9.64
+high_health,high_mrr,2031,247,1.82,3.25,0.74,100.0,1933.58,4655909.52,21620.23,81.79,20.72,6.0,1.0,86.28,0.46
+medium_health,low_mrr,5713,777,5.22,3.83,0.55,99.54,94.98,658527.33,14184.88,59.57,15.42,11.0,1.0,69.54,2.15
+low_health,high_mrr,60,30,8.33,20.0,0.32,91.1,1845.19,127647.99,12258.08,30.66,9.78,16.0,1.5,53.18,9.6
+high_health,mid_mrr,2775,381,2.59,2.99,0.73,100.0,485.95,1460237.75,7462.29,80.99,20.65,6.0,1.0,83.77,0.51
+low_health,mid_mrr,136,49,12.5,19.12,0.32,90.18,463.14,66866.46,6465.51,33.39,8.98,19.5,2.0,57.82,9.67
+low_health,low_mrr,250,94,14.0,16.8,0.31,90.12,93.49,28287.43,2885.51,32.16,9.53,23.0,1.0,57.68,10.2
+high_health,low_mrr,3267,478,2.42,3.46,0.72,100.0,114.81,412185.6,2348.16,79.91,20.41,6.0,1.0,81.47,0.57

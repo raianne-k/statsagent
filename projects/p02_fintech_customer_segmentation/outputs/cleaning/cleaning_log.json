@@ -1,0 +1,199 @@
+[
+  {
+    "rule_id": "LOAD-01",
+    "action": "loaded_raw_dataset",
+    "details": {
+      "path": "projects/p02_fintech_customer_segmentation/data/raw/fintech_customer_sample.csv",
+      "rows": 8000,
+      "columns": 30
+    }
+  },
+  {
+    "rule_id": "CL-01",
+    "action": "removed_exact_duplicates",
+    "details": {
+      "rows_before": 8000,
+      "rows_after": 8000,
+      "rows_removed": 0
+    }
+  },
+  {
+    "rule_id": "CL-02",
+    "action": "binary_column_missing",
+    "details": {
+      "column": "defaulted"
+    }
+  },
+  {
+    "rule_id": "CL-02",
+    "action": "binary_column_missing",
+    "details": {
+      "column": "missed_payment_last_12m"
+    }
+  },
+  {
+    "rule_id": "CL-02",
+    "action": "binary_column_missing",
+    "details": {
+      "column": "active_credit_card"
+    }
+  },
+  {
+    "rule_id": "CL-02",
+    "action": "binary_column_missing",
+    "details": {
+      "column": "mobile_app_user"
+    }
+  },
+  {
+    "rule_id": "CL-06",
+    "action": "binary_standardization_column_missing",
+    "details": {
+      "column": "defaulted"
+    }
+  },
+  {
+    "rule_id": "CL-06",
+    "action": "binary_standardization_column_missing",
+    "details": {
+      "column": "missed_payment_last_12m"
+    }
+  },
+  {
+    "rule_id": "CL-06",
+    "action": "binary_standardization_column_missing",
+    "details": {
+      "column": "active_credit_card"
+    }
+  },
+  {
+    "rule_id": "CL-06",
+    "action": "binary_standardization_column_missing",
+    "details": {
+      "column": "mobile_app_user"
+    }
+  },
+  {
+    "rule_id": "CL-03",
+    "action": "missing_policy_column_not_found",
+    "details": {
+      "column": "credit_score"
+    }
+  },
+  {
+    "rule_id": "CL-03",
+    "action": "flagged_missing_values",
+    "details": {
+      "column": "savings_balance",
+      "missing_count": 656,
+      "flag_column_created": "savings_balance_missing_flag",
+      "reason": "Missing balances may reflect incomplete financial linkage."
+    }
+  },
+  {
+    "rule_id": "CL-04",
+    "action": "numeric_rule_column_not_found",
+    "details": {
+      "column": "age"
+    }
+  },
+  {
+    "rule_id": "CL-04",
+    "action": "flagged_invalid_numeric_values",
+    "details": {
+      "column": "monthly_income",
+      "invalid_count": 0,
+      "bounds": {
+        "min": 0
+      },
+      "flag_column_created": "monthly_income_invalid_flag"
+    }
+  },
+  {
+    "rule_id": "CL-04",
+    "action": "numeric_rule_column_not_found",
+    "details": {
+      "column": "monthly_expenses"
+    }
+  },
+  {
+    "rule_id": "CL-04",
+    "action": "flagged_invalid_numeric_values",
+    "details": {
+      "column": "savings_balance",
+      "invalid_count": 0,
+      "bounds": {
+        "min": 0
+      },
+      "flag_column_created": "savings_balance_invalid_flag"
+    }
+  },
+  {
+    "rule_id": "CL-04",
+    "action": "numeric_rule_column_not_found",
+    "details": {
+      "column": "debt_balance"
+    }
+  },
+  {
+    "rule_id": "CL-04",
+    "action": "numeric_rule_column_not_found",
+    "details": {
+      "column": "credit_score"
+    }
+  },
+  {
+    "rule_id": "CL-04",
+    "action": "numeric_rule_column_not_found",
+    "details": {
+      "column": "tenure_months"
+    }
+  },
+  {
+    "rule_id": "CL-04",
+    "action": "numeric_rule_column_not_found",
+    "details": {
+      "column": "transactions_per_month"
+    }
+  },
+  {
+    "rule_id": "CL-05",
+    "action": "cast_column_to_category",
+    "details": {
+      "column": "region",
+      "new_type": "category"
+    }
+  },
+  {
+    "rule_id": "CL-05",
+    "action": "categorical_column_missing",
+    "details": {
+      "column": "employment_status"
+    }
+  },
+  {
+    "rule_id": "CL-05",
+    "action": "cast_column_to_category",
+    "details": {
+      "column": "income_band",
+      "new_type": "category"
+    }
+  },
+  {
+    "rule_id": "CL-05",
+    "action": "categorical_column_missing",
+    "details": {
+      "column": "customer_segment"
+    }
+  },
+  {
+    "rule_id": "SAVE-01",
+    "action": "saved_cleaned_dataset_and_log",
+    "details": {
+      "cleaned_dataset_path": "projects/p02_fintech_customer_segmentation/data/cleaned/fintech_customer_cleaned.csv",
+      "cleaning_log_path": "projects/p02_fintech_customer_segmentation/outputs/cleaning/cleaning_log.json",
+      "rows": 8000,
+      "columns": 33
+    }
+  }
+]

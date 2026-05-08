@@ -1,0 +1,182 @@
+[
+  {
+    "rule_id": "LOAD-01",
+    "action": "loaded_raw_dataset",
+    "details": {
+      "path": "data/raw/marketplace_sample.csv",
+      "rows": 1000,
+      "columns": 14
+    }
+  },
+  {
+    "rule_id": "CL-01",
+    "action": "removed_exact_duplicates",
+    "details": {
+      "rows_before": 1000,
+      "rows_after": 1000,
+      "rows_removed": 0
+    }
+  },
+  {
+    "rule_id": "CL-02",
+    "action": "validated_binary_column",
+    "details": {
+      "column": "add_to_cart",
+      "invalid_values_found": 0,
+      "flag_column_created": "add_to_cart_invalid_flag",
+      "accepted_values": "0/1, true/false, yes/no"
+    }
+  },
+  {
+    "rule_id": "CL-02",
+    "action": "validated_binary_column",
+    "details": {
+      "column": "purchased",
+      "invalid_values_found": 0,
+      "flag_column_created": "purchased_invalid_flag",
+      "accepted_values": "0/1, true/false, yes/no"
+    }
+  },
+  {
+    "rule_id": "CL-02",
+    "action": "validated_binary_column",
+    "details": {
+      "column": "buyer_returning",
+      "invalid_values_found": 0,
+      "flag_column_created": "buyer_returning_invalid_flag",
+      "accepted_values": "0/1, true/false, yes/no"
+    }
+  },
+  {
+    "rule_id": "CL-06",
+    "action": "standardized_binary_column",
+    "details": {
+      "source_column": "add_to_cart",
+      "clean_column_created": "add_to_cart_clean",
+      "unmapped_or_invalid_values": 0
+    }
+  },
+  {
+    "rule_id": "CL-06",
+    "action": "standardized_binary_column",
+    "details": {
+      "source_column": "purchased",
+      "clean_column_created": "purchased_clean",
+      "unmapped_or_invalid_values": 0
+    }
+  },
+  {
+    "rule_id": "CL-06",
+    "action": "standardized_binary_column",
+    "details": {
+      "source_column": "buyer_returning",
+      "clean_column_created": "buyer_returning_clean",
+      "unmapped_or_invalid_values": 0
+    }
+  },
+  {
+    "rule_id": "CL-03",
+    "action": "flagged_missing_values",
+    "details": {
+      "column": "seller_rating",
+      "missing_count": 70,
+      "flag_column_created": "seller_rating_missing_flag",
+      "reason": "Missing seller ratings may represent new or unrated sellers."
+    }
+  },
+  {
+    "rule_id": "CL-04",
+    "action": "flagged_invalid_numeric_values",
+    "details": {
+      "column": "item_price",
+      "invalid_count": 0,
+      "bounds": {
+        "min": 0
+      },
+      "flag_column_created": "item_price_invalid_flag"
+    }
+  },
+  {
+    "rule_id": "CL-04",
+    "action": "flagged_invalid_numeric_values",
+    "details": {
+      "column": "views",
+      "invalid_count": 0,
+      "bounds": {
+        "min": 0
+      },
+      "flag_column_created": "views_invalid_flag"
+    }
+  },
+  {
+    "rule_id": "CL-04",
+    "action": "flagged_invalid_numeric_values",
+    "details": {
+      "column": "listing_age_days",
+      "invalid_count": 0,
+      "bounds": {
+        "min": 0
+      },
+      "flag_column_created": "listing_age_days_invalid_flag"
+    }
+  },
+  {
+    "rule_id": "CL-04",
+    "action": "flagged_invalid_numeric_values",
+    "details": {
+      "column": "likes",
+      "invalid_count": 0,
+      "bounds": {
+        "min": 0
+      },
+      "flag_column_created": "likes_invalid_flag"
+    }
+  },
+  {
+    "rule_id": "CL-04",
+    "action": "flagged_invalid_numeric_values",
+    "details": {
+      "column": "seller_rating",
+      "invalid_count": 0,
+      "bounds": {
+        "min": 0,
+        "max": 5
+      },
+      "flag_column_created": "seller_rating_invalid_flag"
+    }
+  },
+  {
+    "rule_id": "CL-05",
+    "action": "cast_column_to_category",
+    "details": {
+      "column": "category",
+      "new_type": "category"
+    }
+  },
+  {
+    "rule_id": "CL-05",
+    "action": "cast_column_to_category",
+    "details": {
+      "column": "region",
+      "new_type": "category"
+    }
+  },
+  {
+    "rule_id": "CL-05",
+    "action": "cast_column_to_category",
+    "details": {
+      "column": "shipping_price",
+      "new_type": "category"
+    }
+  },
+  {
+    "rule_id": "SAVE-01",
+    "action": "saved_cleaned_dataset_and_log",
+    "details": {
+      "cleaned_dataset_path": "projects/01_marketplace_descriptive/data/cleaned/marketplace_cleaned.csv",
+      "cleaning_log_path": "projects/01_marketplace_descriptive/outputs/cleaning/cleaning_log.json",
+      "rows": 1000,
+      "columns": 26
+    }
+  }
+]
